@@ -1,0 +1,29 @@
+{
+  "@@locale": "en",
+  "pageHomeTitle": "مرحباً {firstName}",
+  "@pageHomeTitle": {
+    "description": "هذا فقط مجرد مثال لشرح قدرة الترجمة على وضع نصوصو بديلة ",
+    "placeholders": {
+      "firstName": {}
+    }
+  },
+  "main_view_home": "Home",
+  "main_view_settings": "Settings",
+  "main_view_news_requests": "Requests",
+  "about_app": "About App",
+  "settings": "Settings",
+  "version": "Version",
+  "about_developers": "About developers",
+  "sadeem_tech_co": "SadeemTech",
+  "empty_list": "Empty list",
+
+  "settings_view_notification": "Notifications",
+  "settings_view_about": "About",
+  "exception_indicator_try_again": "Try again",
+  "generic_error_indicator_error_while_fetching_data": "An error occurred while fetching data",
+
+  "no_connection_indicator_no_connection": "No connection",
+  "no_connection_indicator_try_again_later": "Please try again later",
+  "not_authorized_indicator_you_need_to_login_to_see_this_page": "To be able to see the contents of this page, you must be logged in",
+  "not_authorized_indicator_login_register": "Register/Login"
+}

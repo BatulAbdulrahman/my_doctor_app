@@ -1,0 +1,29 @@
+{
+  "@@locale": "ar",
+  "pageHomeTitle": "مرحباً {firstName}",
+  "@pageHomeTitle": {
+    "description": "هذا فقط مجرد مثال لشرح قدرة الترجمة على وضع نصوصو بديلة ",
+    "placeholders": {
+      "firstName": {}
+    }
+  },
+  "main_view_home": "الاخبار",
+  "main_view_settings": "الضبط",
+
+  "about_app": "عن التطبيق",
+  "settings": "الضبط",
+  "version": "النسخة",
+  "about_developers": "عن المبرمجين",
+  "sadeem_tech_co": "شركة سديم التقنية",
+  "empty_list": "قائمة فارغة",
+
+  "exception_indicator_try_again": "المحاولة مرة أخرى",
+  "generic_error_indicator_error_while_fetching_data": "حدث خطأاثناء جلب البيانات",
+  "settings_view_notification": "الاشعارات",
+  "settings_view_about": "عن التطبيق",
+
+  "no_connection_indicator_no_connection": "لا يوجد اتصال",
+  "no_connection_indicator_try_again_later": "الرجاء المحاولة في وقت لاحق",
+  "not_authorized_indicator_you_need_to_login_to_see_this_page": "لنتمكن من رؤية محتويات هذه الصفحة يتوجب عليك الدخول اولاً",
+  "not_authorized_indicator_login_register": "التسجيل/ الدخول"
+}
