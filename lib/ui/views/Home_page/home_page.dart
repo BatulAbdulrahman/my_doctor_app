@@ -1,15 +1,21 @@
 import 'dart:math';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movieapp/ui/views/home_page/home_page_view_model.dart';
 import 'package:stacked/stacked.dart';
 import 'package:logging/logging.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import '../../../core/constant/app_colors.dart';
 import '../../shared/themes.dart';
+import '../../widgets/analytic_cards/analytic_cards.dart';
 import '../../widgets/stateless/drawer/custom_drawer.dart';
 import '/ui/widgets/stateless/app_bar.dart';
 import '../../widgets/stateless/indicators/loading_circular_progress_indicator.dart';
-import 'home_page_view_model.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../core/constant/app_colors.dart';
+import '../../../core/constant/constants.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
@@ -18,6 +24,10 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
+bool _iconbut = false;
+IconData _iconLight = Icons.wb_sunny;
+IconData _iconDark = Icons.nights_stay;
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
@@ -61,94 +71,108 @@ class _HomePageState extends State<HomePage>
           elevation: 0,
 
           leading: IconButton(
-            color: AppColors.app_color_on_primary,
+            color: AppColors.app_color_primary,
             icon: Icon(Icons.menu),
             onPressed: () => _scaffoldKey.currentState!.openDrawer(),
           ),
-          title: Text("Hello!",
-              style: TextStyle(
-                color: Color(0xFF2E2F5B),
-              )),
+          title: Center(
+            child: Text(
+              "الرئيسية",
+              style: GoogleFonts.cairo(
+                  fontStyle: FontStyle.normal,
+                  fontSize: 20,
+                  color: HexColor.fromHex(Constants.app_color_on_secondary),
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         body: model.isBusy
             ? LoadingCircularProgressIndicator()
             : Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 15, top: 15, bottom: 10),
-                        child: Text(
-                          'Most Watched',
-                          style: TextStyle(
-                              color: Color(0xFF2E2F5B),
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              fontStyle: FontStyle.normal),
-                        ),
-                      ),
+                    Text(
+                      "الإعلانات",
+                      style: GoogleFonts.cairo(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 20,
+                          color: HexColor.fromHex(
+                              Constants.app_color_on_secondary),
+                          fontWeight: FontWeight.bold),
                     ),
                     //image Slider in Top
                     Container(
-                      child: ListView(
-                        children: <Widget>[
-                          CarouselSlider(
-                            options: CarouselOptions(
-                              height: 350.0,
-                              enlargeCenterPage: true,
-                              autoPlay: true,
-                              aspectRatio: 16 / 9,
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              enableInfiniteScroll: true,
-                              autoPlayAnimationDuration:
-                                  Duration(milliseconds: 800),
-                              viewportFraction: 0.7,
-                            ),
-                            items: [
-                              Container(
-                                height: 450.0,
-                                width: 650.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-                                    ),
-                                    alignment: Alignment.center,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 450.0,
-                                width: 650.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-                                    ),
-                                    alignment: Alignment.center,
-                                  ),
-                                ),
-                              ),
-                            ],
+                      child: CarouselSlider(
+                          options: CarouselOptions(
+                            height: 250,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            enableInfiniteScroll: false,
                           ),
-                        ],
-                      ),
+                          items: [
+                            Container(
+                              height: 450.0,
+                              width: 650.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    'assets/images/logo.png',
+                                  ),
+                                  alignment: Alignment.center,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 450.0,
+                              width: 650.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    'assets/images/lcc_logo.png',
+                                  ),
+                                  alignment: Alignment.center,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 450.0,
+                              width: 650.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    'assets/images/photo.png',
+                                  ),
+                                  alignment: Alignment.center,
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "عما تبحث؟",
+                      style: GoogleFonts.cairo(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 20,
+                          color: HexColor.fromHex(
+                              Constants.app_color_on_secondary),
+                          fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 10,
                     ),
-
-                    /* Expanded(
-                      child:
-                        
-                    ),*/
+                    AnalyticCards(),
                   ],
                 ),
               ),

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    locator<KeyStorageService>().locale = 'en';
+    locator<KeyStorageService>().locale = 'ar';
 
     if (locator<KeyStorageService>().locale!.isEmpty) {
       locator<KeyStorageService>().locale = ui.window.locale.languageCode;
@@ -33,6 +33,12 @@ class MyApp extends StatelessWidget {
 
     return MultiProvider(
       providers: providers,
+      builder: (context, child) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: child!,
+        );
+      },
       child: MaterialApp.router(
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),

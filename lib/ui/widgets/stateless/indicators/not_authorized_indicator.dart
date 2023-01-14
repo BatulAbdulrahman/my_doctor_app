@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../generated/l10n.dart';
+import 'package:movieapp/generated/l10n.dart';
 
 class notAuthorizedIndicator extends StatelessWidget {
   const notAuthorizedIndicator({
@@ -48,7 +46,7 @@ class notAuthorizedIndicator extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 width: double.infinity,
-                /*  child: RaisedButton(
+                /* child: RaisedButton(
                   elevation: 0.5,
                   color: Theme.of(context).colorScheme.primary,
                   onPressed: () async {},

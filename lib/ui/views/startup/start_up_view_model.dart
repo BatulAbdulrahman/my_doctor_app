@@ -19,11 +19,10 @@ class StartUpViewModel extends BaseViewModel {
 
     setBusy(false);
 
-    //await loadHome();
+    await loadHome();
   }
 
-  /*Future<void> loadHome() async {
-    locator<NavigationService>()
-        .popAllAndPushNamed(CustomerMainViewRoute(), context!);
-  }*/
+  Future<void> loadHome() async {
+    locator<NavigationService>().popAllAndPushNamed(HomePageRoute(), context!);
+  }
 }

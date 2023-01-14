@@ -3,7 +3,7 @@
 // import 'package:movieapp_faisal/components/drawer/header.dart';
 import 'package:flutter/material.dart';
 import 'package:movieapp/generated/l10n.dart';
-import 'package:movieapp/ui/views/Home_page/home_page_view_model.dart';
+import 'package:movieapp/ui/views/home_page/home_page_view_model.dart';
 import 'package:movieapp/ui/views/settings/settings_view.dart';
 import 'package:stacked/stacked.dart';
 
@@ -35,7 +35,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   //crossAxisAlignment: CrossAxisAlignment.center,
 
                   children: [
-                    //UpperUserInfo(),
+                    // UpperUserInfo(),
                     ListTile(
                       leading: const Icon(
                         Icons.edit,
@@ -47,13 +47,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           color: Color(0xFF2E2F5B),
                         ),
                       ),
-                      /* onTap: (() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EditProfilePage()),
-                        );
-                      }),*/
+                      onTap: (() {}),
                     ),
                     ListTile(
                       leading: const Icon(
@@ -66,13 +60,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           color: Color(0xFF2E2F5B),
                         ),
                       ),
-                      /* onTap: (() {
-                        Navigator.push(
+                      onTap: (() {
+                        /* Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => FavoritesMoviesView()),
-                        );
-                      }),*/
+                        );*/
+                      }),
                     ),
                     ListTile(
                       leading: const Icon(
@@ -80,7 +74,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         color: Color(0xFFF4D35E),
                       ),
                       title: Text(
-                        AppLocalizations.of(context).settings,
+                        "تسجيل الطبيب",
                         style: TextStyle(
                           color: Color(0xFF2E2F5B),
                         ),
@@ -93,26 +87,26 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         );
                       }),
                     ),
-                    // if (model.email != null)
+
                     ListTile(
                       leading: Icon(
                         Icons.logout,
                         color: Color(0xFFF4D35E),
                       ),
                       title: Text(
-                        "تسجيل طبيب",
+                        "تواصل معنا",
                         style: TextStyle(
                           color: Color(0xFF2E2F5B),
                         ),
                       ),
-                      /* onTap: (() {
-                          model.clear();
-                          Navigator.push(
+                      onTap: (() {
+                        //model.clear();
+                        /* Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => LoginPage()),
-                          );
-                        }),*/
+                          );*/
+                      }),
                     ),
                     // if (model.email == null)
                     ListTile(
@@ -121,32 +115,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         color: Color(0xFFF4D35E),
                       ),
                       title: Text(
-                        ' تواصل معنا ',
+                        ' تسجيل الخروج ',
                         style: TextStyle(
                           color: Color(0xFF2E2F5B),
                         ),
                       ),
-                      /*onTap: (() {
-                          model.clear();
+                      onTap: (() {
+                        /*  model.clear();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => LoginPage()),
-                          );
-                        }),*/
+                          );*/
+                      }),
                     ),
-
-                    /* child: CustomListTile(
-                icon: Icons.favorite_outline,
-                title: 'Favorite',
-                infoCount: 0,
-              ),
-            ),
-            CustomListTile(
-              icon: Icons.settings,
-              title: 'Settings',
-              infoCount: 0,
-            ),*/
                     SizedBox(height: 10),
                   ],
                 ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:movieapp/generated/l10n.dart';
 
+import '../home_page/home_page.dart';
 import '/ui/widgets/animation/fade_in.dart';
 import '../settings/settings_view.dart';
 import 'main_view_model.dart';
@@ -13,10 +14,7 @@ class CustomerMainView extends StatefulWidget {
 }
 
 class _CustomerMainViewState extends State<CustomerMainView> {
-  final _views = [
-    //FadeIn(child: PostsListView()),
-    FadeIn(child: SettingsView())
-  ];
+  final _views = [FadeIn(child: HomePage()), FadeIn(child: SettingsView())];
 
   @override
   void dispose() {

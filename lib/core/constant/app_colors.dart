@@ -1,11 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
 
 class AppColors {
-
   static Color app_color_primary =
       HexColor.fromHex(Constants.app_color_primary);
   static Color app_color_on_primary =
