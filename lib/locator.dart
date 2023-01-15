@@ -2,8 +2,10 @@ import 'dart:async';
 import 'package:get_it/get_it.dart';
 import 'package:movieapp/core/utils/file_helper.dart';
 
+import 'core/data_sources/clinics/clinics_remote_data_source.dart';
 import 'core/data_sources/doctors/doctors_remote_data_source.dart';
 import 'core/data_sources/specializations/specializations_remote_data_source.dart';
+import 'core/repositories/clinics_repository/clinics_repository.dart';
 import 'core/repositories/doctors_repository/doctors_repository.dart';
 import 'core/repositories/specializations_repository/specializations_repository.dart';
 import 'core/services/connectivity/connectivity_service.dart';
@@ -43,12 +45,18 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<SpecializationsRemoteDataSource>(
     () => SpecializationsRemoteDataSourceImpl(),
   );
+  locator.registerLazySingleton<ClinicsRemoteDataSource>(
+    () => ClinicsRemoteDataSourceImpl(),
+  );
 
   locator
       .registerLazySingleton<DoctorsRepository>(() => DoctorsRepositoryImpl());
 
   locator.registerLazySingleton<SpecializationsRepository>(
       () => SpecializationsRepositoryImpl());
+
+  locator
+      .registerLazySingleton<ClinicsRepository>(() => ClinicsRepositoryImpl());
 
   await _setupSharedPreferences();
 

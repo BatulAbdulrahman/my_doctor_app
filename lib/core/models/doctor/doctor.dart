@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import '../clinic/clinic.dart';
 import '../specialization/specialization.dart';
 import '/core/models/serializers.dart';
 import 'package:built_collection/built_collection.dart';
@@ -28,7 +30,9 @@ abstract class Doctor implements Built<Doctor, DoctorBuilder> {
 
   String? get img;
 
-  BuiltList<Specialization>? get specializations;
+  BuiltList<Specialization>? get Specializations;
+
+  BuiltList<Clinic>? get clinics;
 
   String? get thumb;
 

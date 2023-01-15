@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movieapp/ui/views/clinics_list/paged_clinics_list_view.dart';
 import 'package:movieapp/ui/views/doctors_list/paged_doctors_list_view.dart';
 import 'package:movieapp/ui/views/home_page/home_page.dart';
 import 'package:movieapp/ui/widgets/stateless/drawer/custom_drawer.dart';
@@ -8,19 +9,19 @@ import 'package:stacked/stacked.dart';
 import '../../../core/constant/app_colors.dart';
 import '../../../core/constant/constants.dart';
 import '../../widgets/stateless/indicators/loading_circular_progress_indicator.dart';
-import 'doctors_list_view_model.dart';
+import 'clinics_list_view_model.dart';
 
-class DoctorsListView extends StatefulWidget {
-  DoctorsListView();
+class ClinicsListView extends StatefulWidget {
+  ClinicsListView();
 
   @override
-  _DoctorsListViewState createState() => _DoctorsListViewState();
+  _ClinicsListViewState createState() => _ClinicsListViewState();
 }
 
-class _DoctorsListViewState extends State<DoctorsListView>
+class _ClinicsListViewState extends State<ClinicsListView>
     with SingleTickerProviderStateMixin {
   @override
-  void didUpdateWidget(DoctorsListView oldWidget) {
+  void didUpdateWidget(ClinicsListView oldWidget) {
     super.didUpdateWidget(oldWidget);
   }
 
@@ -38,8 +39,8 @@ class _DoctorsListViewState extends State<DoctorsListView>
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
-    return ViewModelBuilder<DoctorsListViewModel>.reactive(
-      viewModelBuilder: () => DoctorsListViewModel(),
+    return ViewModelBuilder<ClinicsListViewModel>.reactive(
+      viewModelBuilder: () => ClinicsListViewModel(),
       onModelReady: (model) async {
         await model.init(context);
       },
@@ -68,7 +69,7 @@ class _DoctorsListViewState extends State<DoctorsListView>
                   }),
               title: Center(
                 child: Text(
-                  "الأطباء",
+                  "المصحات",
                   style: GoogleFonts.cairo(
                       fontStyle: FontStyle.normal,
                       fontSize: 20,
@@ -94,7 +95,7 @@ class _DoctorsListViewState extends State<DoctorsListView>
                                       const EdgeInsets.only(left: 8, right: 8),
                                   child: TextFormField(
                                     decoration: InputDecoration(
-                                        hintText: ' بحث عن طبيب',
+                                        hintText: ' بحث عن مصحة',
                                         hintStyle: GoogleFonts.cairo(
                                           fontStyle: FontStyle.normal,
                                           fontSize: 15,
@@ -132,14 +133,14 @@ class _DoctorsListViewState extends State<DoctorsListView>
                         ),
                         Expanded(
                           child: Container(
-                            child: PagedDoctorsListView(
+                            child: PagedClinicsListView(
                               {
                                 if (model.q!.isNotEmpty) 'q': model.q!,
-                                if (model.selected_doctor != null)
+                                if (model.selected_clinic != null)
                                   'filters':
-                                      'doctors:[${model.selected_doctor!.id}]'
+                                      'clinic:[${model.selected_clinic!.id}]'
                               },
-                              onDoctorsClicked: (move) {},
+                              onClinicsClicked: (move) {},
                             ),
                           ),
                         )

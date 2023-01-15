@@ -88,13 +88,21 @@ class _$DoctorSerializer implements StructuredSerializer<Doctor> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.specializations;
+    value = object.Specializations;
     if (value != null) {
       result
-        ..add('specializations')
+        ..add('Specializations')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType(Specialization)])));
+    }
+    value = object.clinics;
+    if (value != null) {
+      result
+        ..add('clinics')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(Clinic)])));
     }
     value = object.thumb;
     if (value != null) {
@@ -178,10 +186,16 @@ class _$DoctorSerializer implements StructuredSerializer<Doctor> {
           result.img = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'specializations':
-          result.specializations.replace(serializers.deserialize(value,
+        case 'Specializations':
+          result.Specializations.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(Specialization)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'clinics':
+          result.clinics.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Clinic)]))!
               as BuiltList<Object?>);
           break;
         case 'thumb':
@@ -229,7 +243,9 @@ class _$Doctor extends Doctor {
   @override
   final String? img;
   @override
-  final BuiltList<Specialization>? specializations;
+  final BuiltList<Specialization>? Specializations;
+  @override
+  final BuiltList<Clinic>? clinics;
   @override
   final String? thumb;
   @override
@@ -253,7 +269,8 @@ class _$Doctor extends Doctor {
       this.rating,
       this.role,
       this.img,
-      this.specializations,
+      this.Specializations,
+      this.clinics,
       this.thumb,
       this.is_disabled,
       this.created_at,
@@ -281,7 +298,8 @@ class _$Doctor extends Doctor {
         rating == other.rating &&
         role == other.role &&
         img == other.img &&
-        specializations == other.specializations &&
+        Specializations == other.Specializations &&
+        clinics == other.clinics &&
         thumb == other.thumb &&
         is_disabled == other.is_disabled &&
         created_at == other.created_at &&
@@ -303,17 +321,21 @@ class _$Doctor extends Doctor {
                                             $jc(
                                                 $jc(
                                                     $jc(
-                                                        $jc($jc(0, id.hashCode),
-                                                            name.hashCode),
-                                                        phone.hashCode),
-                                                    email.hashCode),
-                                                password.hashCode),
-                                            sex.hashCode),
-                                        description.hashCode),
-                                    rating.hashCode),
-                                role.hashCode),
-                            img.hashCode),
-                        specializations.hashCode),
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(0,
+                                                                    id.hashCode),
+                                                                name.hashCode),
+                                                            phone.hashCode),
+                                                        email.hashCode),
+                                                    password.hashCode),
+                                                sex.hashCode),
+                                            description.hashCode),
+                                        rating.hashCode),
+                                    role.hashCode),
+                                img.hashCode),
+                            Specializations.hashCode),
+                        clinics.hashCode),
                     thumb.hashCode),
                 is_disabled.hashCode),
             created_at.hashCode),
@@ -333,7 +355,8 @@ class _$Doctor extends Doctor {
           ..add('rating', rating)
           ..add('role', role)
           ..add('img', img)
-          ..add('specializations', specializations)
+          ..add('Specializations', Specializations)
+          ..add('clinics', clinics)
           ..add('thumb', thumb)
           ..add('is_disabled', is_disabled)
           ..add('created_at', created_at)
@@ -385,11 +408,16 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
   String? get img => _$this._img;
   set img(String? img) => _$this._img = img;
 
-  ListBuilder<Specialization>? _specializations;
-  ListBuilder<Specialization> get specializations =>
-      _$this._specializations ??= new ListBuilder<Specialization>();
-  set specializations(ListBuilder<Specialization>? specializations) =>
-      _$this._specializations = specializations;
+  ListBuilder<Specialization>? _Specializations;
+  ListBuilder<Specialization> get Specializations =>
+      _$this._Specializations ??= new ListBuilder<Specialization>();
+  set Specializations(ListBuilder<Specialization>? Specializations) =>
+      _$this._Specializations = Specializations;
+
+  ListBuilder<Clinic>? _clinics;
+  ListBuilder<Clinic> get clinics =>
+      _$this._clinics ??= new ListBuilder<Clinic>();
+  set clinics(ListBuilder<Clinic>? clinics) => _$this._clinics = clinics;
 
   String? _thumb;
   String? get thumb => _$this._thumb;
@@ -422,7 +450,8 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
       _rating = $v.rating;
       _role = $v.role;
       _img = $v.img;
-      _specializations = $v.specializations?.toBuilder();
+      _Specializations = $v.Specializations?.toBuilder();
+      _clinics = $v.clinics?.toBuilder();
       _thumb = $v.thumb;
       _is_disabled = $v.is_disabled;
       _created_at = $v.created_at;
@@ -461,7 +490,8 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
               rating: rating,
               role: role,
               img: img,
-              specializations: _specializations?.build(),
+              Specializations: _Specializations?.build(),
+              clinics: _clinics?.build(),
               thumb: thumb,
               is_disabled: is_disabled,
               created_at: created_at,
@@ -469,8 +499,10 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'specializations';
-        _specializations?.build();
+        _$failedField = 'Specializations';
+        _Specializations?.build();
+        _$failedField = 'clinics';
+        _clinics?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'Doctor', _$failedField, e.toString());

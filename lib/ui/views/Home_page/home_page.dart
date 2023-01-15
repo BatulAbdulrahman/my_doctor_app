@@ -25,10 +25,6 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-bool _iconbut = false;
-IconData _iconLight = Icons.wb_sunny;
-IconData _iconDark = Icons.nights_stay;
-
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   @override
@@ -121,7 +117,7 @@ class _HomePageState extends State<HomePage>
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    'assets/images/logo.png',
+                                    'assets/images/photo_2023-01-15_13-22-30.jpg',
                                   ),
                                   alignment: Alignment.center,
                                 ),
@@ -135,7 +131,7 @@ class _HomePageState extends State<HomePage>
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    'assets/images/lcc_logo.png',
+                                    'assets/images/photo_2023-01-15_13-22-37.jpg',
                                   ),
                                   alignment: Alignment.center,
                                 ),
@@ -149,7 +145,7 @@ class _HomePageState extends State<HomePage>
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                    'assets/images/photo.png',
+                                    'assets/images/photo_2023-01-15_13-22-30.jpg',
                                   ),
                                   alignment: Alignment.center,
                                 ),
