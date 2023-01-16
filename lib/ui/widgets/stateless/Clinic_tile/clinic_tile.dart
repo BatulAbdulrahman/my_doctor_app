@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movieapp/ui/views/clinic_view/clinic_view.dart';
 import 'package:movieapp/ui/widgets/stateless/Clinic_tile/clinic_tile_view_model.dart';
-import 'package:movieapp/ui/widgets/stateless/Doctor_tile/doctor_tile_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../core/models/clinic/clinic.dart';
-import '../../../../core/models/doctor/doctor.dart';
-import '../../../shared/themes.dart';
 import '../../../shared/ui_helper.dart';
 import '../../../views/Home_page/home_page.dart';
 import '../star_display.dart';
@@ -27,9 +25,9 @@ class ClinicTile extends StatelessWidget {
       viewModelBuilder: () => ClinicTileViewModel(),
       onModelReady: (model) => model.init(clinic),
       builder: (context, model, child) => InkWell(
-        /* onTap: () async {
+        onTap: () async {
           model.moveToClinicViewRoute(context);
-        },*/
+        },
         child: SingleChildScrollView(
           child: Expanded(
             child: Card(
@@ -95,7 +93,7 @@ class ClinicTile extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePage()),
+                                  builder: (context) => ClinicView(clinic)),
                             );
                           }),
                     ],

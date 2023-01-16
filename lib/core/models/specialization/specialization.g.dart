@@ -34,6 +34,14 @@ class _$SpecializationSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.doctors;
+    if (value != null) {
+      result
+        ..add('doctors')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(Doctor)])));
+    }
     value = object.created_at;
     if (value != null) {
       result
@@ -71,6 +79,12 @@ class _$SpecializationSerializer
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'doctors':
+          result.doctors.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Doctor)]))!
+              as BuiltList<Object?>);
+          break;
         case 'created_at':
           result.created_at = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
@@ -92,6 +106,8 @@ class _$Specialization extends Specialization {
   @override
   final String? name;
   @override
+  final BuiltList<Doctor>? doctors;
+  @override
   final DateTime? created_at;
   @override
   final DateTime? updated_at;
@@ -99,7 +115,8 @@ class _$Specialization extends Specialization {
   factory _$Specialization([void Function(SpecializationBuilder)? updates]) =>
       (new SpecializationBuilder()..update(updates))._build();
 
-  _$Specialization._({this.id, this.name, this.created_at, this.updated_at})
+  _$Specialization._(
+      {this.id, this.name, this.doctors, this.created_at, this.updated_at})
       : super._();
 
   @override
@@ -116,6 +133,7 @@ class _$Specialization extends Specialization {
     return other is Specialization &&
         id == other.id &&
         name == other.name &&
+        doctors == other.doctors &&
         created_at == other.created_at &&
         updated_at == other.updated_at;
   }
@@ -123,7 +141,8 @@ class _$Specialization extends Specialization {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, id.hashCode), name.hashCode), created_at.hashCode),
+        $jc($jc($jc($jc(0, id.hashCode), name.hashCode), doctors.hashCode),
+            created_at.hashCode),
         updated_at.hashCode));
   }
 
@@ -132,6 +151,7 @@ class _$Specialization extends Specialization {
     return (newBuiltValueToStringHelper(r'Specialization')
           ..add('id', id)
           ..add('name', name)
+          ..add('doctors', doctors)
           ..add('created_at', created_at)
           ..add('updated_at', updated_at))
         .toString();
@@ -150,6 +170,11 @@ class SpecializationBuilder
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
+  ListBuilder<Doctor>? _doctors;
+  ListBuilder<Doctor> get doctors =>
+      _$this._doctors ??= new ListBuilder<Doctor>();
+  set doctors(ListBuilder<Doctor>? doctors) => _$this._doctors = doctors;
+
   DateTime? _created_at;
   DateTime? get created_at => _$this._created_at;
   set created_at(DateTime? created_at) => _$this._created_at = created_at;
@@ -165,6 +190,7 @@ class SpecializationBuilder
     if ($v != null) {
       _id = $v.id;
       _name = $v.name;
+      _doctors = $v.doctors?.toBuilder();
       _created_at = $v.created_at;
       _updated_at = $v.updated_at;
       _$v = null;
@@ -187,9 +213,26 @@ class SpecializationBuilder
   Specialization build() => _build();
 
   _$Specialization _build() {
-    final _$result = _$v ??
-        new _$Specialization._(
-            id: id, name: name, created_at: created_at, updated_at: updated_at);
+    _$Specialization _$result;
+    try {
+      _$result = _$v ??
+          new _$Specialization._(
+              id: id,
+              name: name,
+              doctors: _doctors?.build(),
+              created_at: created_at,
+              updated_at: updated_at);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'doctors';
+        _doctors?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'Specialization', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

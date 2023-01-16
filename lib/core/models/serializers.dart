@@ -4,6 +4,7 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:movieapp/core/models/clinic/clinic.dart';
+import 'package:movieapp/core/models/review/review.dart';
 import 'package:movieapp/core/models/specialization/specialization.dart';
 
 import 'doctor/doctor.dart';
@@ -12,11 +13,7 @@ part 'serializers.g.dart';
 
 /// List of models that will have a serializer generated for them.
 ///   - Usually you only add models here that you expect to fetch from some API
-@SerializersFor([
-  Doctor,
-  Specialization,
-  Clinic,
-])
+@SerializersFor([Doctor, Specialization, Clinic, Review])
 
 /// Can add additional plugins that will serialize types like [DateTime]
 ///   - It is also possible to write your own Serializer plugins for type that

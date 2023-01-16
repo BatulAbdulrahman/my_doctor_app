@@ -3,6 +3,7 @@ import 'dart:ffi';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:movieapp/core/models/review/review.dart';
 import '../clinic/clinic.dart';
 import '../specialization/specialization.dart';
 import '/core/models/serializers.dart';
@@ -33,6 +34,8 @@ abstract class Doctor implements Built<Doctor, DoctorBuilder> {
   BuiltList<Specialization>? get Specializations;
 
   BuiltList<Clinic>? get clinics;
+
+  BuiltList<Review>? get reviews;
 
   String? get thumb;
 

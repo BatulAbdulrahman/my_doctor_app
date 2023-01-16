@@ -2,12 +2,17 @@
 // import 'package:movieapp_faisal/components/drawer/custom_list_tile.dart';
 // import 'package:movieapp_faisal/components/drawer/header.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/generated/l10n.dart';
+import 'package:movieapp/ui/views/home_page/home_page.dart';
 import 'package:movieapp/ui/views/home_page/home_page_view_model.dart';
 import 'package:movieapp/ui/views/settings/settings_view.dart';
+import 'package:movieapp/ui/widgets/stateless/drawer/upper_user_info.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
+import '../../../../core/constant/constants.dart';
+import '../../../views/login and signup/login_page.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -35,49 +40,45 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   //crossAxisAlignment: CrossAxisAlignment.center,
 
                   children: [
-                    // UpperUserInfo(),
+                    UpperUserInfo(),
                     ListTile(
-                      leading: const Icon(
-                        Icons.edit,
-                        color: Color(0xFFF4D35E),
+                      title: Text(
+                        ' الرئيسية',
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_secondary),
+                            fontWeight: FontWeight.bold),
                       ),
-                      title: const Text(
-                        ' الرئيسية ',
-                        style: TextStyle(
-                          color: Color(0xFF2E2F5B),
-                        ),
+                      onTap: (() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
+                      }),
+                    ),
+                    ListTile(
+                      title: Text(
+                        ' عن التطبيق ',
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_secondary),
+                            fontWeight: FontWeight.bold),
                       ),
                       onTap: (() {}),
                     ),
                     ListTile(
-                      leading: const Icon(
-                        Icons.favorite_outline,
-                        color: Color(0xFFF4D35E),
-                      ),
-                      title: const Text(
-                        ' عن التطبيق ',
-                        style: TextStyle(
-                          color: Color(0xFF2E2F5B),
-                        ),
-                      ),
-                      onTap: (() {
-                        /* Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => FavoritesMoviesView()),
-                        );*/
-                      }),
-                    ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.settings,
-                        color: Color(0xFFF4D35E),
-                      ),
                       title: Text(
                         "تسجيل الطبيب",
-                        style: TextStyle(
-                          color: Color(0xFF2E2F5B),
-                        ),
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_secondary),
+                            fontWeight: FontWeight.bold),
                       ),
                       onTap: (() {
                         Navigator.push(
@@ -87,49 +88,71 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         );
                       }),
                     ),
-
-                    ListTile(
-                      leading: Icon(
-                        Icons.logout,
-                        color: Color(0xFFF4D35E),
+                    /* Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        "-----------------------------------",
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_secondary),
+                            fontWeight: FontWeight.bold),
                       ),
+                    ),*/
+                    ListTile(
                       title: Text(
                         "تواصل معنا",
-                        style: TextStyle(
-                          color: Color(0xFF2E2F5B),
-                        ),
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_secondary),
+                            fontWeight: FontWeight.bold),
                       ),
-                      onTap: (() {
-                        //model.clear();
-                        /* Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()),
-                          );*/
-                      }),
+                      onTap: (() {}),
                     ),
-                    // if (model.email == null)
                     ListTile(
-                      leading: Icon(
-                        Icons.login,
-                        color: Color(0xFFF4D35E),
-                      ),
                       title: Text(
                         ' تسجيل الخروج ',
-                        style: TextStyle(
-                          color: Color(0xFF2E2F5B),
-                        ),
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_secondary),
+                            fontWeight: FontWeight.bold),
                       ),
                       onTap: (() {
-                        /*  model.clear();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()),
-                          );*/
+                        // model.clear();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
                       }),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 80),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5),
+                      child: Expanded(
+                        flex: 2,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(80),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(80),
+                            child: Image.network(
+                              'https://laiacc.com/wp-content/uploads/2019/03/blank-profile-picture-973460_1280-1030x1030.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

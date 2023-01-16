@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import '../../models/doctor/doctor.dart';
+import '../../models/review/review.dart';
 import '/core/constant/api_routes.dart';
 import '/core/services/http/http_service.dart';
 import '/locator.dart';
@@ -8,6 +9,7 @@ import '/locator.dart';
 abstract class DoctorsRemoteDataSource {
   Future<Doctor> fetchDoctor([Map<String, dynamic>? parameters]);
   // Future<Doctor> addDoctor([Map<String, dynamic>? parameters]);
+  Future<Review> sendReview([Map<String, dynamic>? parameters]);
   Future<List<Doctor>> fetchDoctorsList([Map<String, dynamic>? parameters]);
 
   //Future<Genre> fetchGenre([Map<String, dynamic>? parameters]);
@@ -24,6 +26,14 @@ class DoctorsRemoteDataSourceImpl implements DoctorsRemoteDataSource {
         .getHttp(ApiRoutes.doctor(parameters!['id']), parameters));
 
     return Doctor.fromMap(restData);
+  }
+
+  @override
+  Future<Review> sendReview([Map<String, dynamic>? parameters]) async {
+    Map<String, dynamic> restData = await (httpService!
+        .postHttp(ApiRoutes.review(parameters!['id']), parameters));
+
+    return Review.fromMap(restData);
   }
 
   @override

@@ -12,32 +12,32 @@ import '../../../core/repositories/clinics_repository/clinics_repository.dart';
 import '../../../core/repositories/doctors_repository/doctors_repository.dart';
 import '../../../locator.dart';
 
-class DoctorViewModel extends BaseViewModel {
+class CLinicViewModel extends BaseViewModel {
   BuildContext? context;
-  Doctor? doctor;
+  Clinic? clinic;
   int rating = 0;
-  List<Clinic> clinic = [];
-  Future<void> init(BuildContext context, Doctor doctor) async {
+  List<Doctor> doctor = [];
+  Future<void> init(BuildContext context, Clinic clinic) async {
     this.context = context;
 
     setBusy(true);
 
-    this.doctor = await locator<DoctorsRepository>()
-        .fetchDoctor({'id': doctor.id.toString()});
+    this.clinic = await locator<ClinicsRepository>()
+        .fetchClinic({'id': clinic.id.toString()});
 
-    clinic = await locator<ClinicsRepository>().fetchClinicsList();
+    doctor = await locator<DoctorsRepository>().fetchDoctorsList();
     setBusy(false);
   }
 
-  Future<String?>? getToken() async {
+  /*Future<String?>? getToken() async {
     var prefs = await SharedPreferences.getInstance();
     var token = prefs.getString('token');
     return token;
-  }
+  }*/
 
-  Future<void> getUser() async {
+  /*Future<void> getUser() async {
     setBusy(true);
-    final url = Uri.parse('http://44.212.230.27:8000/api/v1/doctors/review');
+    final url = Uri.parse('http://smdb.sadeem-lab.com/api/v1/movies/review');
 
     var prefs = await SharedPreferences.getInstance();
     var token = prefs.getString('token');
@@ -53,15 +53,15 @@ class DoctorViewModel extends BaseViewModel {
     } catch (e, _) {
       debugPrint(e.toString());
     }
-  }
+  }*/
 
-  Future<void> sendReview(int rate) async {
+  /*Future<void> sendReview(String comment, int rate) async {
     setBusy(true);
-    print('the id is ${doctor?.id}');
-    //print('the commet is ${comment}');
+    print('the id is ${movie?.id}');
+    print('the commet is ${comment}');
     print('the rate is $rate');
     final url = Uri.parse(
-        'http://44.212.230.27:8000/api/v1/movies/${doctor!.id}/review');
+        'http://smdb.sadeem-lab.com/api/v1/movies/${movie!.id}/review');
 
     var prefs = await SharedPreferences.getInstance();
     var token = prefs.getString('token');
@@ -75,7 +75,7 @@ class DoctorViewModel extends BaseViewModel {
       },
       body: jsonEncode({
         'rate': rate,
-        //'comment': comment,
+        'comment': comment,
       }),
     );
     try {
@@ -84,5 +84,5 @@ class DoctorViewModel extends BaseViewModel {
     } catch (e, _) {
       debugPrint(e.toString());
     }
-  }
+  }*/
 }

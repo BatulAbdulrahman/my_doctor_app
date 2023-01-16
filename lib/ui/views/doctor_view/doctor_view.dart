@@ -320,27 +320,21 @@ class _DoctorViewState extends State<DoctorView>
                                                                   HexColor.fromHex(
                                                                       Constants
                                                                           .app_color_secondary)),
-                                                      onPressed: () => null,
-                                                      /*  onPressed: () {
-                                                                                      if (commentController!
-                                                    .text.isNotEmpty &&
-                                                commentController!.text.length >
-                                                    10 &&
-                                                model.rating > 0) {
-                                                                                        model.sendReview(
-                                                  commentController!.text,
-                                                  model.rating);
-                                                                                        //model.getUser();
-                                                                                        print(commentController!.text);
-                                                                                      }
-                                                                                      Navigator.push(
-                                                                                        context,
-                                                                                        MaterialPageRoute(
-                                                  builder: (context) => DoctorView(
-                                                       
-                                                      )),
-                                                                                      );
-                                                                                    },*/
+                                                      //  onPressed: () => null,
+                                                      onPressed: () {
+                                                        if (model.rating > 0) {
+                                                          model.sendReview(
+                                                              model.rating);
+                                                          //model.getUser();
+                                                          print(model.rating);
+                                                        }
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  DoctorsListView()),
+                                                        );
+                                                      },
                                                     ),
                                                   ],
                                                 ));

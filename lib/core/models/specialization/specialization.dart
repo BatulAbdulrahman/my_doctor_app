@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import '../doctor/doctor.dart';
 import '/core/models/serializers.dart';
 import 'package:built_collection/built_collection.dart';
 part 'specialization.g.dart';
@@ -12,6 +13,7 @@ abstract class Specialization
 
   String? get name;
 
+  BuiltList<Doctor>? get doctors;
   DateTime? get created_at;
 
   DateTime? get updated_at;

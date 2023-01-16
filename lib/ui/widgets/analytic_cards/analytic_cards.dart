@@ -6,6 +6,7 @@ import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
 import '../../shared/responsive.dart';
 import '../../views/clinics_list/clinics_list_view.dart';
+import '../../views/specs_list/specs_list_view.dart';
 import 'analytic_cards_model.dart';
 
 class AnalyticCards extends StatelessWidget {
@@ -83,47 +84,55 @@ class AnalyticCards extends StatelessWidget {
             SizedBox(
               width: 25,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16.0 / 2,
-                vertical: 16.0 / 2,
-              ),
-              decoration: BoxDecoration(
-                color: HexColor.fromHex(Constants.app_color_on_primary),
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                    color: HexColor.fromHex(Constants.app_color_secondary)),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(16.0 / 2),
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                        color:
-                            HexColor.fromHex(Constants.app_color_on_secondary)
-                                .withOpacity(0.1),
-                        shape: BoxShape.circle),
-                    child: Icon(
-                      Icons.list_alt_outlined,
-                      color: HexColor.fromHex(Constants.app_color_secondary),
+            InkWell(
+              onTap: (() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SpecsListView()),
+                );
+              }),
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16.0 / 2,
+                  vertical: 16.0 / 2,
+                ),
+                decoration: BoxDecoration(
+                  color: HexColor.fromHex(Constants.app_color_on_primary),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                      color: HexColor.fromHex(Constants.app_color_secondary)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(16.0 / 2),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color:
+                              HexColor.fromHex(Constants.app_color_on_secondary)
+                                  .withOpacity(0.1),
+                          shape: BoxShape.circle),
+                      child: Icon(
+                        Icons.list_alt_outlined,
+                        color: HexColor.fromHex(Constants.app_color_secondary),
+                      ),
                     ),
-                  ),
-                  Text(
-                    "التخصصات",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.cairo(
-                        fontStyle: FontStyle.normal,
-                        fontSize: 15,
-                        color:
-                            HexColor.fromHex(Constants.app_color_on_secondary),
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+                    Text(
+                      "التخصصات",
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.cairo(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 15,
+                          color: HexColor.fromHex(
+                              Constants.app_color_on_secondary),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

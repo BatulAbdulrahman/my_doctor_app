@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import '../doctor/doctor.dart';
 import '/core/models/serializers.dart';
 import 'package:built_collection/built_collection.dart';
 part 'clinic.g.dart';
@@ -24,6 +25,8 @@ abstract class Clinic implements Built<Clinic, ClinicBuilder> {
   String? get time;
 
   String? get description;
+
+  BuiltList<Doctor>? get doctors;
 
   DateTime? get created_at;
 

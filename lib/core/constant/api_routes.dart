@@ -15,6 +15,5 @@ class ApiRoutes {
 
   static String clinic(String? id) => '$base/clinic/$id';
   static String specialization(String? id) => '$base/specialization/$id';
-  //static String review(String? id) => '$base/movies/$id/review';
-
+  static String review(String? id) => '$base/doctors/$id/review';
 }

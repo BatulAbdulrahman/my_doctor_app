@@ -81,6 +81,14 @@ class _$ClinicSerializer implements StructuredSerializer<Clinic> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.doctors;
+    if (value != null) {
+      result
+        ..add('doctors')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(Doctor)])));
+    }
     value = object.created_at;
     if (value != null) {
       result
@@ -145,6 +153,12 @@ class _$ClinicSerializer implements StructuredSerializer<Clinic> {
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'doctors':
+          result.doctors.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Doctor)]))!
+              as BuiltList<Object?>);
+          break;
         case 'created_at':
           result.created_at = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
@@ -180,6 +194,8 @@ class _$Clinic extends Clinic {
   @override
   final String? description;
   @override
+  final BuiltList<Doctor>? doctors;
+  @override
   final DateTime? created_at;
   @override
   final DateTime? updated_at;
@@ -197,6 +213,7 @@ class _$Clinic extends Clinic {
       this.day,
       this.time,
       this.description,
+      this.doctors,
       this.created_at,
       this.updated_at})
       : super._();
@@ -221,6 +238,7 @@ class _$Clinic extends Clinic {
         day == other.day &&
         time == other.time &&
         description == other.description &&
+        doctors == other.doctors &&
         created_at == other.created_at &&
         updated_at == other.updated_at;
   }
@@ -235,14 +253,18 @@ class _$Clinic extends Clinic {
                         $jc(
                             $jc(
                                 $jc(
-                                    $jc($jc($jc(0, id.hashCode), name.hashCode),
-                                        location.hashCode),
-                                    img.hashCode),
-                                phone.hashCode),
-                            thumb.hashCode),
-                        day.hashCode),
-                    time.hashCode),
-                description.hashCode),
+                                    $jc(
+                                        $jc(
+                                            $jc($jc(0, id.hashCode),
+                                                name.hashCode),
+                                            location.hashCode),
+                                        img.hashCode),
+                                    phone.hashCode),
+                                thumb.hashCode),
+                            day.hashCode),
+                        time.hashCode),
+                    description.hashCode),
+                doctors.hashCode),
             created_at.hashCode),
         updated_at.hashCode));
   }
@@ -259,6 +281,7 @@ class _$Clinic extends Clinic {
           ..add('day', day)
           ..add('time', time)
           ..add('description', description)
+          ..add('doctors', doctors)
           ..add('created_at', created_at)
           ..add('updated_at', updated_at))
         .toString();
@@ -304,6 +327,11 @@ class ClinicBuilder implements Builder<Clinic, ClinicBuilder> {
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
+  ListBuilder<Doctor>? _doctors;
+  ListBuilder<Doctor> get doctors =>
+      _$this._doctors ??= new ListBuilder<Doctor>();
+  set doctors(ListBuilder<Doctor>? doctors) => _$this._doctors = doctors;
+
   DateTime? _created_at;
   DateTime? get created_at => _$this._created_at;
   set created_at(DateTime? created_at) => _$this._created_at = created_at;
@@ -326,6 +354,7 @@ class ClinicBuilder implements Builder<Clinic, ClinicBuilder> {
       _day = $v.day;
       _time = $v.time;
       _description = $v.description;
+      _doctors = $v.doctors?.toBuilder();
       _created_at = $v.created_at;
       _updated_at = $v.updated_at;
       _$v = null;
@@ -348,19 +377,33 @@ class ClinicBuilder implements Builder<Clinic, ClinicBuilder> {
   Clinic build() => _build();
 
   _$Clinic _build() {
-    final _$result = _$v ??
-        new _$Clinic._(
-            id: id,
-            name: name,
-            location: location,
-            img: img,
-            phone: phone,
-            thumb: thumb,
-            day: day,
-            time: time,
-            description: description,
-            created_at: created_at,
-            updated_at: updated_at);
+    _$Clinic _$result;
+    try {
+      _$result = _$v ??
+          new _$Clinic._(
+              id: id,
+              name: name,
+              location: location,
+              img: img,
+              phone: phone,
+              thumb: thumb,
+              day: day,
+              time: time,
+              description: description,
+              doctors: _doctors?.build(),
+              created_at: created_at,
+              updated_at: updated_at);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'doctors';
+        _doctors?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'Clinic', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

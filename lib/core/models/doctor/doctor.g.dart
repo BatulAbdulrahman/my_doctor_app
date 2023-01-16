@@ -104,6 +104,14 @@ class _$DoctorSerializer implements StructuredSerializer<Doctor> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(Clinic)])));
     }
+    value = object.reviews;
+    if (value != null) {
+      result
+        ..add('reviews')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(Review)])));
+    }
     value = object.thumb;
     if (value != null) {
       result
@@ -198,6 +206,12 @@ class _$DoctorSerializer implements StructuredSerializer<Doctor> {
                       BuiltList, const [const FullType(Clinic)]))!
               as BuiltList<Object?>);
           break;
+        case 'reviews':
+          result.reviews.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Review)]))!
+              as BuiltList<Object?>);
+          break;
         case 'thumb':
           result.thumb = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -247,6 +261,8 @@ class _$Doctor extends Doctor {
   @override
   final BuiltList<Clinic>? clinics;
   @override
+  final BuiltList<Review>? reviews;
+  @override
   final String? thumb;
   @override
   final bool? is_disabled;
@@ -271,6 +287,7 @@ class _$Doctor extends Doctor {
       this.img,
       this.Specializations,
       this.clinics,
+      this.reviews,
       this.thumb,
       this.is_disabled,
       this.created_at,
@@ -300,6 +317,7 @@ class _$Doctor extends Doctor {
         img == other.img &&
         Specializations == other.Specializations &&
         clinics == other.clinics &&
+        reviews == other.reviews &&
         thumb == other.thumb &&
         is_disabled == other.is_disabled &&
         created_at == other.created_at &&
@@ -323,19 +341,21 @@ class _$Doctor extends Doctor {
                                                     $jc(
                                                         $jc(
                                                             $jc(
-                                                                $jc(0,
-                                                                    id.hashCode),
-                                                                name.hashCode),
-                                                            phone.hashCode),
-                                                        email.hashCode),
-                                                    password.hashCode),
-                                                sex.hashCode),
-                                            description.hashCode),
-                                        rating.hashCode),
-                                    role.hashCode),
-                                img.hashCode),
-                            Specializations.hashCode),
-                        clinics.hashCode),
+                                                                $jc(
+                                                                    $jc(0,
+                                                                        id.hashCode),
+                                                                    name.hashCode),
+                                                                phone.hashCode),
+                                                            email.hashCode),
+                                                        password.hashCode),
+                                                    sex.hashCode),
+                                                description.hashCode),
+                                            rating.hashCode),
+                                        role.hashCode),
+                                    img.hashCode),
+                                Specializations.hashCode),
+                            clinics.hashCode),
+                        reviews.hashCode),
                     thumb.hashCode),
                 is_disabled.hashCode),
             created_at.hashCode),
@@ -357,6 +377,7 @@ class _$Doctor extends Doctor {
           ..add('img', img)
           ..add('Specializations', Specializations)
           ..add('clinics', clinics)
+          ..add('reviews', reviews)
           ..add('thumb', thumb)
           ..add('is_disabled', is_disabled)
           ..add('created_at', created_at)
@@ -419,6 +440,11 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
       _$this._clinics ??= new ListBuilder<Clinic>();
   set clinics(ListBuilder<Clinic>? clinics) => _$this._clinics = clinics;
 
+  ListBuilder<Review>? _reviews;
+  ListBuilder<Review> get reviews =>
+      _$this._reviews ??= new ListBuilder<Review>();
+  set reviews(ListBuilder<Review>? reviews) => _$this._reviews = reviews;
+
   String? _thumb;
   String? get thumb => _$this._thumb;
   set thumb(String? thumb) => _$this._thumb = thumb;
@@ -452,6 +478,7 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
       _img = $v.img;
       _Specializations = $v.Specializations?.toBuilder();
       _clinics = $v.clinics?.toBuilder();
+      _reviews = $v.reviews?.toBuilder();
       _thumb = $v.thumb;
       _is_disabled = $v.is_disabled;
       _created_at = $v.created_at;
@@ -492,6 +519,7 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
               img: img,
               Specializations: _Specializations?.build(),
               clinics: _clinics?.build(),
+              reviews: _reviews?.build(),
               thumb: thumb,
               is_disabled: is_disabled,
               created_at: created_at,
@@ -503,6 +531,8 @@ class DoctorBuilder implements Builder<Doctor, DoctorBuilder> {
         _Specializations?.build();
         _$failedField = 'clinics';
         _clinics?.build();
+        _$failedField = 'reviews';
+        _reviews?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'Doctor', _$failedField, e.toString());
