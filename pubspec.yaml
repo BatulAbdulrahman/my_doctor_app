@@ -1,5 +1,5 @@
 name: movieapp
-description: flutter_clean_architecture_starter
+description: طبيبي
 
 version: 1.0.0+1
 
@@ -33,6 +33,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   fluttertoast: ^8.0.9
   
+  
 dev_dependencies:
   analyzer: ^3.3.1
   flutter_lints: ^1.0.3
@@ -48,8 +49,9 @@ flutter_icons:
   android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
-  image_path_android: "assets/images/logo_ios.png"
+  image_path_android: "assets/images/طبيبي.png"
   image_path_ios: "assets/images/logo_ios.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

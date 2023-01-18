@@ -20,6 +20,7 @@ import '../../widgets/stateless/indicators/loading_circular_progress_indicator.d
 import '../../widgets/stateless/star_display.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../clinics_list/clinics_list_view.dart';
 import '../doctors_list/paged_doctors_list_view.dart';
 
 // ignore: must_be_immutable
@@ -87,7 +88,7 @@ class _ClinicViewState extends State<ClinicView>
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DoctorsListView()),
+                            builder: (context) => ClinicsListView()),
                       );
                     }),
                 title: Center(
