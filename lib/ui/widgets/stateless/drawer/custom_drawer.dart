@@ -132,27 +132,31 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                     SizedBox(height: 80),
                     Padding(
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 0),
                       child: Expanded(
                         flex: 2,
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 5),
-                          width: 100,
-                          height: 100,
+                          width: 150,
+                          height: 150,
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(80),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(80),
-                            child: Image.network(
-                              'https://laiacc.com/wp-content/uploads/2019/03/blank-profile-picture-973460_1280-1030x1030.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(80),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/طبيبي-removebg-preview.png'))),
                         ),
                       ),
                     ),
+                    /*  Text(
+                      ' طبيبي',
+                      style: GoogleFonts.cairo(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 20,
+                          color: HexColor.fromHex(
+                              Constants.app_color_on_secondary),
+                          fontWeight: FontWeight.bold),
+                    ),*/
                   ],
                 ),
               ),

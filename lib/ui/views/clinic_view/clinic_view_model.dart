@@ -8,8 +8,10 @@ import 'package:stacked/stacked.dart';
 
 import 'package:http/http.dart';
 import '../../../core/models/clinic/clinic.dart';
+import '../../../core/models/specialization/specialization.dart';
 import '../../../core/repositories/clinics_repository/clinics_repository.dart';
 import '../../../core/repositories/doctors_repository/doctors_repository.dart';
+import '../../../core/repositories/specializations_repository/specializations_repository.dart';
 import '../../../locator.dart';
 
 class CLinicViewModel extends BaseViewModel {
@@ -17,6 +19,7 @@ class CLinicViewModel extends BaseViewModel {
   Clinic? clinic;
   int rating = 0;
   List<Doctor> doctor = [];
+  List<Specialization> spec_list = [];
   Future<void> init(BuildContext context, Clinic clinic) async {
     this.context = context;
 
@@ -26,6 +29,8 @@ class CLinicViewModel extends BaseViewModel {
         .fetchClinic({'id': clinic.id.toString()});
 
     doctor = await locator<DoctorsRepository>().fetchDoctorsList();
+    spec_list =
+        await locator<SpecializationsRepository>().fetchSpecializationsList();
     setBusy(false);
   }
 

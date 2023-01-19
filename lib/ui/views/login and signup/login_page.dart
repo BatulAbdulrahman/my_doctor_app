@@ -27,17 +27,6 @@ class LoginPage extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(color: Color(0xFFFAFAFA)),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            colors: [
-                          Color(0xFFFAFAFA),
-                          AppColors.app_color_primary,
-                          //AppColors.app_color_on_secondary,
-                        ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter)),
-                  ),
                   InkWell(
                       onTap: (() {
                         model.clear();
@@ -57,6 +46,32 @@ class LoginPage extends StatelessWidget {
                                     Constants.app_color_on_secondary),
                                 fontWeight: FontWeight.bold),
                           ))),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 45),
+                    child: Expanded(
+                      flex: 2,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 300.0,
+                            width: 400.0,
+                            decoration: BoxDecoration(
+                              //borderRadius: BorderRadius.circular(10.0),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: AssetImage(
+                                  'assets/images/طبيبي-removebg-preview.png',
+                                ),
+                                alignment: Alignment.center,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   Center(
                     child: Expanded(
                       child: Column(
@@ -209,7 +224,8 @@ class LoginPage extends StatelessWidget {
                                 style: GoogleFonts.cairo(
                                     fontStyle: FontStyle.normal,
                                     fontSize: 14,
-                                    color: Colors.white,
+                                    color: HexColor.fromHex(
+                                        Constants.app_color_on_secondary),
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(

@@ -328,11 +328,15 @@ class _DoctorViewState extends State<DoctorView>
                                                           //model.getUser();
                                                           print(model.rating);
                                                         }
+                                                        /*Navigator.of(context)
+                                                            .pop(DoctorView(
+                                                                model.doctor!));*/
                                                         Navigator.push(
                                                           context,
                                                           MaterialPageRoute(
                                                               builder: (context) =>
-                                                                  DoctorsListView()),
+                                                                  DoctorView(model
+                                                                      .doctor!)),
                                                         );
                                                       },
                                                     ),
