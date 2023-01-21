@@ -3,15 +3,15 @@
 // import 'package:movieapp_faisal/components/drawer/header.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movieapp/generated/l10n.dart';
+import 'package:movieapp/ui/views/contact_us/contact_us_view.dart';
 import 'package:movieapp/ui/views/home_page/home_page.dart';
 import 'package:movieapp/ui/views/home_page/home_page_view_model.dart';
-import 'package:movieapp/ui/views/settings/settings_view.dart';
 import 'package:movieapp/ui/widgets/stateless/drawer/upper_user_info.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
+import '../../../views/about_app/about_app_view.dart';
 import '../../../views/login and signup/login_page.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -34,21 +34,23 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 curve: Curves.easeInOutCubic,
                 duration: const Duration(milliseconds: 250),
                 width: 150,
-                color: Colors.white,
+                color: HexColor.fromHex(Constants.app_color_primary),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
-
                   children: [
                     UpperUserInfo(),
                     ListTile(
+                      leading: Icon(
+                        Icons.home_outlined,
+                        color: HexColor.fromHex(Constants.app_color_on_primary),
+                      ),
                       title: Text(
-                        ' الرئيسية',
+                        'الرئـيسـية',
                         style: GoogleFonts.cairo(
                             fontStyle: FontStyle.normal,
-                            fontSize: 15,
+                            fontSize: 16,
                             color: HexColor.fromHex(
-                                Constants.app_color_on_secondary),
+                                Constants.app_color_on_primary),
                             fontWeight: FontWeight.bold),
                       ),
                       onTap: (() {
@@ -59,71 +61,94 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       }),
                     ),
                     ListTile(
-                      title: Text(
-                        ' عن التطبيق ',
-                        style: GoogleFonts.cairo(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 15,
-                            color: HexColor.fromHex(
-                                Constants.app_color_on_secondary),
-                            fontWeight: FontWeight.bold),
+                      leading: Icon(
+                        Icons.phone_iphone_outlined,
+                        color: HexColor.fromHex(Constants.app_color_on_primary),
                       ),
-                      onTap: (() {}),
-                    ),
-                    ListTile(
                       title: Text(
-                        "تسجيل الطبيب",
+                        'عـن التـطبيـق',
                         style: GoogleFonts.cairo(
                             fontStyle: FontStyle.normal,
-                            fontSize: 15,
+                            fontSize: 16,
                             color: HexColor.fromHex(
-                                Constants.app_color_on_secondary),
+                                Constants.app_color_on_primary),
                             fontWeight: FontWeight.bold),
                       ),
                       onTap: (() {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SettingsView()),
+                              builder: (context) => AdoutAppView()),
                         );
                       }),
                     ),
-                    /* Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "-----------------------------------",
-                        style: GoogleFonts.cairo(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 15,
-                            color: HexColor.fromHex(
-                                Constants.app_color_on_secondary),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),*/
                     ListTile(
-                      title: Text(
-                        "تواصل معنا",
-                        style: GoogleFonts.cairo(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 15,
-                            color: HexColor.fromHex(
-                                Constants.app_color_on_secondary),
-                            fontWeight: FontWeight.bold),
+                      leading: Icon(
+                        Icons.add_outlined,
+                        color: HexColor.fromHex(Constants.app_color_on_primary),
                       ),
-                      onTap: (() {}),
-                    ),
-                    ListTile(
                       title: Text(
-                        ' تسجيل الخروج ',
+                        'تسجيـل طبـيب',
                         style: GoogleFonts.cairo(
                             fontStyle: FontStyle.normal,
-                            fontSize: 15,
+                            fontSize: 16,
                             color: HexColor.fromHex(
-                                Constants.app_color_on_secondary),
+                                Constants.app_color_on_primary),
                             fontWeight: FontWeight.bold),
                       ),
                       onTap: (() {
-                        // model.clear();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ContactUsView()),
+                        );
+                      }),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                      child: Divider(
+                        color: HexColor.fromHex(Constants.app_color_on_primary)
+                            .withOpacity(0.5),
+                        thickness: 1,
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.phone_outlined,
+                        color: HexColor.fromHex(Constants.app_color_on_primary),
+                      ),
+                      title: Text(
+                        'تواصـل معنـا',
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 16,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_primary),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: (() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ContactUsView()),
+                        );
+                      }),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.logout_outlined,
+                        color: HexColor.fromHex(Constants.app_color_on_primary),
+                      ),
+                      title: Text(
+                        ' تسجيـل الخـروج ',
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 16,
+                            color: HexColor.fromHex(
+                                Constants.app_color_on_primary),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onTap: (() {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => LoginPage()),
@@ -131,32 +156,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       }),
                     ),
                     SizedBox(height: 80),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 0),
-                      child: Expanded(
-                        flex: 2,
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 5),
-                          width: 150,
-                          height: 150,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(80),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/طبيبي-removebg-preview.png'))),
-                        ),
-                      ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(80),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/طبيبي-removebg-preview.png'))),
                     ),
-                    /*  Text(
-                      ' طبيبي',
-                      style: GoogleFonts.cairo(
-                          fontStyle: FontStyle.normal,
-                          fontSize: 20,
-                          color: HexColor.fromHex(
-                              Constants.app_color_on_secondary),
-                          fontWeight: FontWeight.bold),
-                    ),*/
+                    SizedBox(
+                      height: 20,
+                    )
                   ],
                 ),
               ),

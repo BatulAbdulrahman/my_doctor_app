@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
               body: Stack(
                 children: <Widget>[
                   Container(
-                    decoration: BoxDecoration(color: Color(0xFFFAFAFA)),
+                    decoration: BoxDecoration(color: Color(0xFFcfdfda)),
                   ),
                   InkWell(
                       onTap: (() {
@@ -204,7 +204,7 @@ class LoginPage extends StatelessWidget {
                                     Constants.app_color_secondary),
                               ),
                               child: Text(
-                                "تسجيل ",
+                                'تسجيل دخول',
                                 style: GoogleFonts.cairo(
                                     fontStyle: FontStyle.normal,
                                     fontSize: 16,
@@ -242,7 +242,7 @@ class LoginPage extends StatelessWidget {
                                 child: InkWell(
                                   onTap: null,
                                   child: Text(
-                                    " تسجيل",
+                                    'تسجيل',
                                     style: GoogleFonts.cairo(
                                         fontStyle: FontStyle.normal,
                                         fontSize: 14,

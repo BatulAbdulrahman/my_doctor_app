@@ -24,7 +24,7 @@ class SignupPage extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFFFAFAFA),
+                      color: Color(0xFFcfdfda),
                     ),
                   ),
                   Padding(

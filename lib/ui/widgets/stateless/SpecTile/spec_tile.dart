@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/core/models/specialization/specialization.dart';
-import 'package:movieapp/ui/views/clinic_view/clinic_view.dart';
 import 'package:movieapp/ui/views/spec_view/spec_view.dart';
-import 'package:movieapp/ui/widgets/stateless/Clinic_tile/clinic_tile_view_model.dart';
 import 'package:movieapp/ui/widgets/stateless/SpecTile/spec_tile_view_model.dart';
-import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
-import '../../../../core/models/clinic/clinic.dart';
-import '../../../shared/ui_helper.dart';
-import '../../../views/Home_page/home_page.dart';
-import '../star_display.dart';
 
 /// A list tile for an article.
 class SpecTile extends StatelessWidget {
@@ -54,11 +47,14 @@ class SpecTile extends StatelessWidget {
                 vertical: 16.0 / 2,
               ),
               decoration: BoxDecoration(
-                color: HexColor.fromHex(Constants.app_color_on_primary),
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                    color: HexColor.fromHex(Constants.app_color_secondary)),
-              ),
+                  color: HexColor.fromHex(Constants.app_color_on_primary),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5,
+                      color: Colors.grey,
+                    ),
+                  ]),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,8 +96,12 @@ class SpecTile extends StatelessWidget {
             decoration: BoxDecoration(
               color: HexColor.fromHex(Constants.app_color_on_primary),
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                  color: HexColor.fromHex(Constants.app_color_secondary)),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 5,
+                  color: Colors.grey,
+                )
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

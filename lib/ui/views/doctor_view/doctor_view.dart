@@ -1,10 +1,6 @@
-import 'dart:math';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/ui/views/doctors_list/doctors_list_view.dart';
-import 'package:movieapp/ui/widgets/stateless/Doctor_tile/doctor_tile.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../core/constant/app_colors.dart';
@@ -64,15 +60,14 @@ class _DoctorViewState extends State<DoctorView>
       builder: (context, model, child) => model.isBusy
           ? Scaffold(body: LoadingCircularProgressIndicator())
           : Scaffold(
-              // key: _scaffoldKey,
-              backgroundColor: Color(0xFFFAFAFA),
+              backgroundColor: Color(0xFFcfdfda),
               drawer: Drawer(
                 width: 300,
                 elevation: 0,
                 child: Expanded(child: CustomDrawer()),
               ),
               appBar: AppBar(
-                backgroundColor: Color(0xFFFAFAFA),
+                backgroundColor: Color(0xFFcfdfda),
                 elevation: 0,
                 leading: IconButton(
                     alignment: Alignment.bottomLeft,
@@ -86,16 +81,14 @@ class _DoctorViewState extends State<DoctorView>
                             builder: (context) => DoctorsListView()),
                       );
                     }),
-                title: Center(
-                  child: Text(
-                    "بيانات الطبيب",
-                    style: GoogleFonts.cairo(
-                        fontStyle: FontStyle.normal,
-                        fontSize: 20,
-                        color:
-                            HexColor.fromHex(Constants.app_color_on_secondary),
-                        fontWeight: FontWeight.bold),
-                  ),
+                centerTitle: true,
+                title: Text(
+                  'بيـانـات الطبـيب',
+                  style: GoogleFonts.cairo(
+                      fontStyle: FontStyle.normal,
+                      fontSize: 20,
+                      color: HexColor.fromHex(Constants.app_color_on_secondary),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               body: model.isBusy
@@ -114,7 +107,6 @@ class _DoctorViewState extends State<DoctorView>
                                     Expanded(
                                       flex: 1,
                                       child: Container(
-                                        //color: Colors.r,
                                         child: Image.network(
                                           widget.doctor.thumb ??
                                               'https://woodfibreinsulation.co.uk/wp-content/uploads/2017/04/blank-profile-picture-973460-1-1.png',
@@ -203,7 +195,7 @@ class _DoctorViewState extends State<DoctorView>
                                                   Expanded(
                                                     child: Center(
                                                       child: Text(
-                                                        "التقييم",
+                                                        'التقييم',
                                                         style:
                                                             GoogleFonts.cairo(
                                                           fontStyle:
@@ -247,14 +239,14 @@ class _DoctorViewState extends State<DoctorView>
                                         )),
                                     // UIHelper.verticalSpaceSmall(),
                                   ])),
-                                  UIHelper.verticalSpaceLarge(),
+                                  UIHelper.verticalSpaceMedium(),
                                   PrimaryButton(
                                       press: () {
                                         showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
                                                   title: Text(
-                                                    "قيم الطبيب",
+                                                    'قيم الطبـيب',
                                                     style: GoogleFonts.cairo(
                                                       fontStyle:
                                                           FontStyle.normal,
@@ -262,7 +254,7 @@ class _DoctorViewState extends State<DoctorView>
                                                       color: HexColor.fromHex(
                                                           Constants
                                                               .app_color_on_secondary),
-                                                      //fontWeight: FontWeight.bold
+                                                      // fontWeight: FontWeight.bold
                                                     ),
                                                   ),
                                                   actions: [
@@ -295,19 +287,6 @@ class _DoctorViewState extends State<DoctorView>
                                                       ),
                                                     ),
                                                     ElevatedButton(
-                                                      child: Text(
-                                                        "قيم",
-                                                        style: GoogleFonts.cairo(
-                                                            fontStyle: FontStyle
-                                                                .normal,
-                                                            fontSize: 15,
-                                                            color: HexColor
-                                                                .fromHex(Constants
-                                                                    .app_color_on_primary),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal),
-                                                      ),
                                                       style:
                                                           TextButton.styleFrom(
                                                               padding: EdgeInsets
@@ -320,7 +299,6 @@ class _DoctorViewState extends State<DoctorView>
                                                                   HexColor.fromHex(
                                                                       Constants
                                                                           .app_color_secondary)),
-                                                      //  onPressed: () => null,
                                                       onPressed: () {
                                                         if (model.rating > 0) {
                                                           model.sendReview(
@@ -328,9 +306,6 @@ class _DoctorViewState extends State<DoctorView>
                                                           //model.getUser();
                                                           print(model.rating);
                                                         }
-                                                        /*Navigator.of(context)
-                                                            .pop(DoctorView(
-                                                                model.doctor!));*/
                                                         Navigator.push(
                                                           context,
                                                           MaterialPageRoute(
@@ -339,11 +314,24 @@ class _DoctorViewState extends State<DoctorView>
                                                                       .doctor!)),
                                                         );
                                                       },
+                                                      child: Text(
+                                                        'قيـم',
+                                                        style: GoogleFonts.cairo(
+                                                            fontStyle: FontStyle
+                                                                .normal,
+                                                            fontSize: 15,
+                                                            color: HexColor
+                                                                .fromHex(Constants
+                                                                    .app_color_on_primary),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal),
+                                                      ),
                                                     ),
                                                   ],
                                                 ));
                                       },
-                                      buttonText: "قيم الطبيب"),
+                                      buttonText: 'قيـم الطبيـب'),
                                 ],
                               )),
                         ),
@@ -353,7 +341,7 @@ class _DoctorViewState extends State<DoctorView>
                           child: Align(
                             alignment: Alignment.topRight,
                             child: Text(
-                              " الوصف الوظيفي",
+                              ' الوصـف الوظيـفي',
                               style: GoogleFonts.cairo(
                                   fontStyle: FontStyle.normal,
                                   fontSize: 20,
@@ -415,7 +403,7 @@ class _DoctorViewState extends State<DoctorView>
                           child: Align(
                             alignment: Alignment.topRight,
                             child: Text(
-                              "جدول العمل",
+                              'جـدول العمـل',
                               style: GoogleFonts.cairo(
                                   fontStyle: FontStyle.normal,
                                   fontSize: 20,
@@ -427,8 +415,7 @@ class _DoctorViewState extends State<DoctorView>
                         ),
                         UIHelper.verticalSpaceMedium(),
                         Card(
-                          color:
-                              HexColor.fromHex(Constants.app_color_secondary),
+                          color: HexColor.fromHex(Constants.app_color_primary),
                           elevation: 6,
                           margin: EdgeInsets.all(10),
                           child: Container(
@@ -503,7 +490,6 @@ class _DoctorViewState extends State<DoctorView>
                                                           FontWeight.bold),
                                                 ),
                                               ),
-                                              // UIHelper.horizontalSpaceSmall(),
                                             ],
                                           ),
                                         ],

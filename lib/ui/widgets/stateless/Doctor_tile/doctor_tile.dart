@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/ui/widgets/stateless/Doctor_tile/doctor_tile_view_model.dart';
-import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../../core/models/doctor/doctor.dart';
-import '../../../shared/themes.dart';
 import '../../../shared/ui_helper.dart';
 import '../star_display.dart';
 
@@ -112,7 +110,7 @@ class DoctorTile extends StatelessWidget {
                                     Expanded(
                                       child: Center(
                                         child: Text(
-                                          "التقييم",
+                                          'التقييم',
                                           style: GoogleFonts.cairo(
                                             fontStyle: FontStyle.normal,
                                             fontSize: 12,

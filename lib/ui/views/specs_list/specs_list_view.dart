@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movieapp/ui/views/clinics_list/paged_clinics_list_view.dart';
-import 'package:movieapp/ui/views/doctors_list/paged_doctors_list_view.dart';
 import 'package:movieapp/ui/views/home_page/home_page.dart';
 import 'package:movieapp/ui/views/specs_list/paged_specs_list_view.dart';
 import 'package:movieapp/ui/widgets/stateless/drawer/custom_drawer.dart';
@@ -48,14 +46,14 @@ class _SpecsListViewState extends State<SpecsListView>
       builder: (context, model, child) {
         return Scaffold(
             key: _scaffoldKey,
-            backgroundColor: Color(0xFFFAFAFA),
+            backgroundColor: Color(0xFFcfdfda),
             drawer: Drawer(
               width: 300,
               elevation: 0,
               child: Expanded(child: CustomDrawer()),
             ),
             appBar: AppBar(
-              backgroundColor: Color(0xFFFAFAFA),
+              backgroundColor: Color(0xFFcfdfda),
               elevation: 0,
               leading: IconButton(
                   alignment: Alignment.bottomLeft,
@@ -68,15 +66,14 @@ class _SpecsListViewState extends State<SpecsListView>
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   }),
-              title: Center(
-                child: Text(
-                  "التخصصات",
-                  style: GoogleFonts.cairo(
-                      fontStyle: FontStyle.normal,
-                      fontSize: 20,
-                      color: HexColor.fromHex(Constants.app_color_on_secondary),
-                      fontWeight: FontWeight.bold),
-                ),
+              centerTitle: true,
+              title: Text(
+                'التخـصـصـات',
+                style: GoogleFonts.cairo(
+                    fontStyle: FontStyle.normal,
+                    fontSize: 20,
+                    color: HexColor.fromHex(Constants.app_color_on_secondary),
+                    fontWeight: FontWeight.bold),
               ),
             ),
             body: model.isBusy
@@ -89,7 +86,6 @@ class _SpecsListViewState extends State<SpecsListView>
                           padding: const EdgeInsets.fromLTRB(0, 15, 0, 8),
                           child: Row(
                             children: [
-                              // ActorsSearch(),
                               Expanded(
                                 child: Padding(
                                   padding:
@@ -146,10 +142,7 @@ class _SpecsListViewState extends State<SpecsListView>
                           ),
                         )
                       ],
-                    ))); // ActorsCards(model.actors_list..shuffle()));
-        // body: ListView(
-        //   children: model.actors_list.map((e) => ActorsCards(e)).toList(),
-        // ));
+                    )));
       },
     );
   }

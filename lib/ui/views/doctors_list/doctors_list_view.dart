@@ -46,14 +46,14 @@ class _DoctorsListViewState extends State<DoctorsListView>
       builder: (context, model, child) {
         return Scaffold(
             key: _scaffoldKey,
-            backgroundColor: Color(0xFFFAFAFA),
+            backgroundColor: Color(0xFFcfdfda),
             drawer: Drawer(
               width: 300,
               elevation: 0,
               child: Expanded(child: CustomDrawer()),
             ),
             appBar: AppBar(
-              backgroundColor: Color(0xFFFAFAFA),
+              backgroundColor: Color(0xFFcfdfda),
               elevation: 0,
               leading: IconButton(
                   alignment: Alignment.bottomLeft,
@@ -66,15 +66,14 @@ class _DoctorsListViewState extends State<DoctorsListView>
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   }),
-              title: Center(
-                child: Text(
-                  "الأطباء",
-                  style: GoogleFonts.cairo(
-                      fontStyle: FontStyle.normal,
-                      fontSize: 20,
-                      color: HexColor.fromHex(Constants.app_color_on_secondary),
-                      fontWeight: FontWeight.bold),
-                ),
+              centerTitle: true,
+              title: Text(
+                'الأطبـاء',
+                style: GoogleFonts.cairo(
+                    fontStyle: FontStyle.normal,
+                    fontSize: 20,
+                    color: HexColor.fromHex(Constants.app_color_on_secondary),
+                    fontWeight: FontWeight.bold),
               ),
             ),
             body: model.isBusy
