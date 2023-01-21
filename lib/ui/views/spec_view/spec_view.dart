@@ -4,7 +4,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/core/models/specialization/specialization.dart';
-import 'package:movieapp/ui/views/clinic_view/clinic_view_model.dart';
 import 'package:movieapp/ui/views/doctors_list/doctors_list_view.dart';
 import 'package:movieapp/ui/views/spec_view/spec_view_model.dart';
 import 'package:movieapp/ui/widgets/stateless/Doctor_tile/doctor_tile.dart';
@@ -22,6 +21,7 @@ import '../../widgets/stateless/indicators/loading_circular_progress_indicator.d
 import '../../widgets/stateless/star_display.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../doctor_view/doctor_view.dart';
 import '../doctors_list/paged_doctors_list_view.dart';
 import '../specs_list/specs_list_view.dart';
 
@@ -158,128 +158,172 @@ class _SpecViewState extends State<SpecView>
                           ),
                         ),
                         UIHelper.verticalSpaceMedium(),
-                        Card(
-                          elevation: 3,
-                          margin: EdgeInsets.all(10),
-                          child: Container(
-                            height: MediaQuery.of(context).size.height / 8,
-                            child: Center(
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(
-                                      //color: Colors.r,
-                                      child: Image.network(
-                                        widget.specialization.doctors!.first
-                                                .thumb ??
-                                            'https://woodfibreinsulation.co.uk/wp-content/uploads/2017/04/blank-profile-picture-973460-1-1.png',
-                                        fit: BoxFit.contain,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DoctorView(
+                                      widget.specialization.doctors!.first)),
+                            );
+                          },
+                          child: Card(
+                            elevation: 3,
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height / 8,
+                              child: Center(
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                        //color: Colors.r,
+                                        child: Image.network(
+                                          widget.specialization.doctors!.first
+                                                  .thumb ??
+                                              'https://woodfibreinsulation.co.uk/wp-content/uploads/2017/04/blank-profile-picture-973460-1-1.png',
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Expanded(
-                                      flex: 3,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 10, right: 15),
-                                        child: Column(
-                                          children: [
-                                            UIHelper.verticalSpaceLarge(),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    widget.specialization
-                                                        .doctors!.first.name!,
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: GoogleFonts.cairo(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontSize: 15,
-                                                        color: HexColor.fromHex(
-                                                            Constants
-                                                                .app_color_on_secondary),
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ),
-                                                UIHelper.horizontalSpaceSmall(),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      )),
-                                  UIHelper.horizontalSpaceSmall(),
-                                  Expanded(
-                                      flex: 3,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 3, left: 30, right: 5),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                          children: [
-                                            UIHelper.verticalSpaceLarge(),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Center(
+                                    Expanded(
+                                        flex: 3,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 10, right: 15),
+                                          child: Column(
+                                            children: [
+                                              UIHelper.verticalSpaceLarge(),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
                                                     child: Text(
-                                                      "التقييم",
+                                                      widget.specialization
+                                                          .doctors!.first.name!,
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
                                                       style: GoogleFonts.cairo(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontSize: 12,
-                                                        color: HexColor.fromHex(
-                                                            Constants
-                                                                .app_color_on_secondary),
-                                                        //fontWeight: FontWeight.bold
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          fontSize: 15,
+                                                          color: HexColor
+                                                              .fromHex(Constants
+                                                                  .app_color_on_secondary),
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  UIHelper
+                                                      .horizontalSpaceSmall(),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      widget
+                                                          .specialization
+                                                          .doctors!
+                                                          .first
+                                                          .Specializations!
+                                                          .first
+                                                          .name!,
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: GoogleFonts.cairo(
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          fontSize: 15,
+                                                          color: HexColor
+                                                              .fromHex(Constants
+                                                                  .app_color_on_secondary),
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  UIHelper
+                                                      .horizontalSpaceSmall(),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        )),
+                                    UIHelper.horizontalSpaceSmall(),
+                                    Expanded(
+                                        flex: 3,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 3, left: 30, right: 5),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                              UIHelper.verticalSpaceLarge(),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Expanded(
+                                                    child: Center(
+                                                      child: Text(
+                                                        "التقييم",
+                                                        style:
+                                                            GoogleFonts.cairo(
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          fontSize: 12,
+                                                          color: HexColor
+                                                              .fromHex(Constants
+                                                                  .app_color_on_secondary),
+                                                          //fontWeight: FontWeight.bold
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                UIHelper.horizontalSpaceSmall(),
-                                              ],
-                                            ),
-                                            UIHelper.horizontalSpaceMedium(),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Expanded(
-                                                    child: Center(
-                                                  child: IconTheme(
-                                                    data: IconThemeData(
-                                                      color: HexColor.fromHex(
-                                                          Constants
-                                                              .app_color_secondary),
-                                                      size: 20,
+                                                  UIHelper
+                                                      .horizontalSpaceSmall(),
+                                                ],
+                                              ),
+                                              UIHelper.horizontalSpaceMedium(),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
+                                                      child: Center(
+                                                    child: IconTheme(
+                                                      data: IconThemeData(
+                                                        color: HexColor.fromHex(
+                                                            Constants
+                                                                .app_color_secondary),
+                                                        size: 20,
+                                                      ),
+                                                      child: StarDisplay(
+                                                          value: widget
+                                                              .specialization
+                                                              .doctors!
+                                                              .first
+                                                              .rating!),
                                                     ),
-                                                    child: StarDisplay(
-                                                        value: widget
-                                                            .specialization
-                                                            .doctors!
-                                                            .first
-                                                            .rating!),
-                                                  ),
-                                                )),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      )),
-                                  // UIHelper.verticalSpaceSmall(),
-                                ],
+                                                  )),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        )),
+                                    // UIHelper.verticalSpaceSmall(),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
