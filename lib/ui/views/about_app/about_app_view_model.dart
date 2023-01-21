@@ -3,12 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-class HomePageModel extends BaseViewModel {
+import '/core/services/key_storage/key_storage_service.dart';
+import '/locator.dart';
+
+class AdoutAppViewModel extends BaseViewModel {
+  final KeyStorageService? keyStorageService = locator<KeyStorageService>();
+
   BuildContext? context;
 
   Future<void> init(BuildContext context) async {
-    this.context = context;
-
     setBusy(true);
 
     setBusy(false);

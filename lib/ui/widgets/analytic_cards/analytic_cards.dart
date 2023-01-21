@@ -10,7 +10,6 @@ import '../../views/specs_list/specs_list_view.dart';
 import 'analytic_cards_model.dart';
 
 class AnalyticCards extends StatelessWidget {
-  //const AnalyticCards({Key? key}) : super(key: key);
   final int crossAxisCount;
   final double childAspectRatio;
 
@@ -28,7 +27,7 @@ class AnalyticCards extends StatelessWidget {
       onModelReady: (model) => model.init(),
       builder: (context, model, child) => Column(children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
               onTap: (() {
@@ -38,6 +37,8 @@ class AnalyticCards extends StatelessWidget {
                 );
               }),
               child: Container(
+                height: 130,
+                width: 110,
                 padding: EdgeInsets.symmetric(
                   horizontal: 16.0 / 2,
                   vertical: 16.0 / 2,
@@ -45,12 +46,16 @@ class AnalyticCards extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: HexColor.fromHex(Constants.app_color_on_primary),
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                      color: HexColor.fromHex(Constants.app_color_secondary)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5.0,
+                      color: Colors.grey,
+                    )
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.all(16.0 / 2),
@@ -67,7 +72,7 @@ class AnalyticCards extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "الأطباء",
+                      'الأطباء',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.cairo(
@@ -81,9 +86,6 @@ class AnalyticCards extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: 25,
-            ),
             InkWell(
               onTap: (() {
                 Navigator.push(
@@ -92,6 +94,8 @@ class AnalyticCards extends StatelessWidget {
                 );
               }),
               child: Container(
+                height: 130,
+                width: 110,
                 padding: EdgeInsets.symmetric(
                   horizontal: 16.0 / 2,
                   vertical: 16.0 / 2,
@@ -99,12 +103,16 @@ class AnalyticCards extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: HexColor.fromHex(Constants.app_color_on_primary),
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                      color: HexColor.fromHex(Constants.app_color_secondary)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5.0,
+                      color: Colors.grey,
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.all(16.0 / 2),
@@ -121,7 +129,7 @@ class AnalyticCards extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "التخصصات",
+                      'التخصصات',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.cairo(
@@ -135,9 +143,6 @@ class AnalyticCards extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: 25,
-            ),
             InkWell(
               onTap: (() {
                 Navigator.push(
@@ -146,6 +151,8 @@ class AnalyticCards extends StatelessWidget {
                 );
               }),
               child: Container(
+                height: 130,
+                width: 110,
                 padding: EdgeInsets.symmetric(
                   horizontal: 16.0 / 2,
                   vertical: 16.0 / 2,
@@ -153,12 +160,16 @@ class AnalyticCards extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: HexColor.fromHex(Constants.app_color_on_primary),
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                      color: HexColor.fromHex(Constants.app_color_secondary)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5.0,
+                      color: Colors.grey,
+                    )
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.all(16.0 / 2),
@@ -175,7 +186,7 @@ class AnalyticCards extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "المصحات",
+                      'المصحات',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.cairo(

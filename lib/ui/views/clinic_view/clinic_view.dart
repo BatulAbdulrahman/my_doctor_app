@@ -1,24 +1,16 @@
-import 'dart:math';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/ui/views/clinic_view/clinic_view_model.dart';
-import 'package:movieapp/ui/views/doctors_list/doctors_list_view.dart';
-import 'package:movieapp/ui/widgets/stateless/Doctor_tile/doctor_tile.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../core/constant/app_colors.dart';
 import '../../../core/constant/constants.dart';
-import '../../../core/models/doctor/doctor.dart';
-import '../../shared/primary_button.dart';
 import '../../shared/ui_helper.dart';
 
 import '../../../core/models/clinic/clinic.dart';
 import '../../widgets/stateless/drawer/custom_drawer.dart';
 import '../../widgets/stateless/indicators/loading_circular_progress_indicator.dart';
 import '../../widgets/stateless/star_display.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../clinics_list/clinics_list_view.dart';
 import '../doctor_view/doctor_view.dart';
@@ -71,14 +63,14 @@ class _ClinicViewState extends State<ClinicView>
           ? Scaffold(body: LoadingCircularProgressIndicator())
           : Scaffold(
               // key: _scaffoldKey,
-              backgroundColor: Color(0xFFFAFAFA),
+              backgroundColor: Color(0xFFcfdfda),
               drawer: Drawer(
                 width: 300,
                 elevation: 0,
                 child: Expanded(child: CustomDrawer()),
               ),
               appBar: AppBar(
-                backgroundColor: Color(0xFFFAFAFA),
+                backgroundColor: Color(0xFFcfdfda),
                 elevation: 0,
                 leading: IconButton(
                     alignment: Alignment.bottomLeft,
@@ -92,16 +84,14 @@ class _ClinicViewState extends State<ClinicView>
                             builder: (context) => ClinicsListView()),
                       );
                     }),
-                title: Center(
-                  child: Text(
-                    "بيانات المصحة",
-                    style: GoogleFonts.cairo(
-                        fontStyle: FontStyle.normal,
-                        fontSize: 20,
-                        color:
-                            HexColor.fromHex(Constants.app_color_on_secondary),
-                        fontWeight: FontWeight.bold),
-                  ),
+                centerTitle: true,
+                title: Text(
+                  'بيـانـات المصحـة',
+                  style: GoogleFonts.cairo(
+                      fontStyle: FontStyle.normal,
+                      fontSize: 20,
+                      color: HexColor.fromHex(Constants.app_color_on_secondary),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               body: model.isBusy
@@ -191,16 +181,16 @@ class _ClinicViewState extends State<ClinicView>
                                                 Expanded(
                                                   child: Center(
                                                     child: Text(
-                                                      "رقم الهاتف",
+                                                      'رقم الهاتف',
                                                       style: GoogleFonts.cairo(
-                                                        fontStyle:
-                                                            FontStyle.normal,
-                                                        fontSize: 12,
-                                                        color: HexColor.fromHex(
-                                                            Constants
-                                                                .app_color_on_secondary),
-                                                        //fontWeight: FontWeight.bold
-                                                      ),
+                                                          fontStyle:
+                                                              FontStyle.normal,
+                                                          fontSize: 12,
+                                                          color: HexColor
+                                                              .fromHex(Constants
+                                                                  .app_color_on_secondary),
+                                                          fontWeight:
+                                                              FontWeight.bold),
                                                     ),
                                                   ),
                                                 ),
@@ -217,7 +207,7 @@ class _ClinicViewState extends State<ClinicView>
                                                 Expanded(
                                                   child: Center(
                                                     child: Text(
-                                                      "widget.clinic.phone!",
+                                                      'widget.clinic.phone!',
                                                       style: GoogleFonts.cairo(
                                                         fontStyle:
                                                             FontStyle.normal,
@@ -248,7 +238,7 @@ class _ClinicViewState extends State<ClinicView>
                           child: Align(
                             alignment: Alignment.topRight,
                             child: Text(
-                              "  الأطباء",
+                              'الأطبـاء',
                               style: GoogleFonts.cairo(
                                   fontStyle: FontStyle.normal,
                                   fontSize: 20,

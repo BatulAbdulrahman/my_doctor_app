@@ -23,6 +23,7 @@ class StartUpViewModel extends BaseViewModel {
   }
 
   Future<void> loadHome() async {
-    locator<NavigationService>().popAllAndPushNamed(HomePageRoute(), context!);
+    locator<NavigationService>()
+        .popAllAndPushNamed(OnboardingViewRoute(), context!);
   }
 }

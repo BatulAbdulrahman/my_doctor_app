@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movieapp/ui/views/Home_page/home_page.dart';
 import 'package:movieapp/ui/views/login%20and%20signup/login_page.dart';
 import 'package:movieapp/ui/widgets/stateless/drawer/upper_userViewmodel.dart';
 import 'package:stacked/stacked.dart';
@@ -30,65 +31,51 @@ class _UpperUserInfoState extends State<UpperUserInfo> {
         },
         builder: (context, model, child) => AnimatedContainer(
             duration: const Duration(milliseconds: 250),
-            height: 150,
+            height: 100,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: HexColor.fromHex(Constants.app_color_primary),
               borderRadius: BorderRadius.circular(0),
             ),
-            child: Center(
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Expanded(
-                      flex: 2,
-                      child: IconButton(
-                          alignment: Alignment.bottomLeft,
-                          color: AppColors.app_color_primary,
-                          icon: Icon(Icons.keyboard_arrow_right_outlined),
-                          iconSize: 30,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginPage()),
-                            );
-                          }),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 5,
-                    child: InkWell(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 1),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'تسجيل الدخول',
-                                  style: GoogleFonts.cairo(
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: 15,
-                                      color: HexColor.fromHex(
-                                          Constants.app_color_on_secondary),
-                                      fontWeight: FontWeight.bold),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.clip,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    alignment: Alignment.bottomLeft,
+                    color: HexColor.fromHex(Constants.app_color_on_primary),
+                    icon: Icon(Icons.keyboard_arrow_right_outlined),
+                    iconSize: 30,
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    }),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: InkWell(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                      child: Text(
+                        'تـسـجيـل الدخـول',
+                        style: GoogleFonts.cairo(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 15,
+                            color:
+                                HexColor.fromHex(Constants.app_color_secondary),
+                            fontWeight: FontWeight.bold),
+                        maxLines: 1,
+                        overflow: TextOverflow.clip,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             )));
   }
 }

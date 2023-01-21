@@ -8,7 +8,7 @@ final primaryMaterialTheme = ThemeData(
   fontFamily: Constants.app_font_name,
   primaryColor: HexColor.fromHex(Constants.app_color_primary),
   accentColor: HexColor.fromHex(Constants.app_color_secondary),
-  primaryColorDark: HexColor.fromHex(Constants.app_color_primary_variant),
+  primaryColorDark: Color(0xFFcfdfda),
   scaffoldBackgroundColor: const Color(0xFFEFEFEF),
   backgroundColor: Colors.white,
   iconTheme: IconThemeData(color: Colors.grey),

@@ -2,17 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:movieapp/core/models/doctor/doctor.dart';
 import 'package:movieapp/core/models/specialization/specialization.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../core/models/clinic/clinic.dart';
-import '../../../core/repositories/clinics_repository/clinics_repository.dart';
-import '../../../core/repositories/doctors_repository/doctors_repository.dart';
 import '../../../core/repositories/specializations_repository/specializations_repository.dart';
 import '../../../generated/l10n.dart';
-import '../../widgets/stateless/Clinic_tile/clinic_tile.dart';
-import '../../widgets/stateless/Doctor_tile/doctor_tile.dart';
 import '../../widgets/stateless/SpecTile/spec_tile.dart';
 import '/core/constant/end_point_parameters.dart';
 import '../../../../locator.dart';
