@@ -83,7 +83,7 @@ class _MedicalQuestionViewState extends State<MedicalQuestionView>
                           height: 10,
                         ),
                         Container(
-                          height: 200.0,
+                          height: 250.0,
                           width: 350.0,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -183,7 +183,7 @@ class _MedicalQuestionViewState extends State<MedicalQuestionView>
                           height: 10,
                         ),
                         Container(
-                          height: 200.0,
+                          height: 250.0,
                           width: 350.0,
                           decoration: BoxDecoration(
                             color: Colors.white,

@@ -239,51 +239,54 @@ class _HomePageState extends State<HomePage>
                               enableInfiniteScroll: false,
                             ),
                             items: [
-                              Container(
-                                height: 450.0,
-                                width: 650.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 5.0,
-                                      color: Colors.grey,
-                                    )
-                                  ],
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 18.0,
-                                      right: 18.0,
-                                      top: 10.0,
-                                      bottom: 10.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'ماذا افعل لمنع تفاقم مرض السكري؟',
-                                        style: GoogleFonts.cairo(
-                                            fontStyle: FontStyle.normal,
-                                            fontSize: 14,
-                                            color: HexColor.fromHex(Constants
-                                                .app_color_on_secondary),
-                                            fontWeight: FontWeight.bold),
-                                        textDirection: TextDirection.rtl,
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        'تأكد من أن لديك: برنامج لممارسة الرياضة - حبوب يومية لتسكين الألم، إذا وافق طبيبك على ذلك - علاج ملائم ضد ارتفاع ضغط الدم وارتفاع الكولسترول في الدم - فحص سنوي للكشف عن البروتين في البول - فحص عينين سنوي من قبل طبيب العيون - برنامج يومي لعلاج اكف القدمين - عدم التدخين - اهتم أن يكون سجل اللقاحات الخاص بك محدث.',
-                                        style: GoogleFonts.cairo(
-                                            fontStyle: FontStyle.normal,
-                                            fontSize: 12,
-                                            color: HexColor.fromHex(Constants
-                                                .app_color_on_secondary),
-                                            fontWeight: FontWeight.normal),
-                                      ),
+                              Expanded(
+                                child: Container(
+                                  height: 600.0,
+                                  width: 650.0,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 5.0,
+                                        color: Colors.grey,
+                                      )
                                     ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 18.0,
+                                        right: 18.0,
+                                        top: 10.0,
+                                        bottom: 10.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'ماذا افعل لمنع تفاقم مرض السكري؟',
+                                          style: GoogleFonts.cairo(
+                                              fontStyle: FontStyle.normal,
+                                              fontSize: 14,
+                                              color: HexColor.fromHex(Constants
+                                                  .app_color_on_secondary),
+                                              fontWeight: FontWeight.bold),
+                                          textDirection: TextDirection.rtl,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'تأكد من أن لديك: برنامج لممارسة الرياضة - حبوب يومية لتسكين الألم، إذا وافق طبيبك على ذلك - علاج ملائم ضد ارتفاع ضغط الدم وارتفاع الكولسترول في الدم - فحص سنوي للكشف عن البروتين في البول - فحص عينين سنوي من قبل طبيب العيون - برنامج يومي لعلاج اكف القدمين - عدم التدخين - اهتم أن يكون سجل اللقاحات الخاص بك محدث.',
+                                          style: GoogleFonts.cairo(
+                                              fontStyle: FontStyle.normal,
+                                              fontSize: 12,
+                                              color: HexColor.fromHex(Constants
+                                                  .app_color_on_secondary),
+                                              fontWeight: FontWeight.normal),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -335,7 +338,7 @@ class _HomePageState extends State<HomePage>
                                 ),
                               ),
                               Container(
-                                height: 450.0,
+                                height: 600.0,
                                 width: 650.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,

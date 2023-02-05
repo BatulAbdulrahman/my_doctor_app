@@ -7,6 +7,8 @@ import 'package:movieapp/ui/views/home_page/home_page.dart';
 import 'package:movieapp/ui/views/login%20and%20signup/login_page.dart';
 import 'package:movieapp/ui/views/contact_us/contact_us_view.dart';
 import 'package:movieapp/ui/views/onboarding_view/onboarding_view.dart';
+import 'package:movieapp/ui/views/spec_view/spec_view.dart';
+import 'package:movieapp/ui/views/specs_list/specs_list_view.dart';
 
 import 'views/main/main_view.dart';
 import 'views/startup/start_up_view.dart';
@@ -19,6 +21,8 @@ import 'views/startup/start_up_view.dart';
   AutoRoute(page: DoctorView),
   AutoRoute(page: ClinicsListView),
   AutoRoute(page: ClinicView),
+  AutoRoute(page: SpecsListView),
+  AutoRoute(page: SpecView),
   AutoRoute(page: LoginPage),
 ])
 class $AppRouter {}

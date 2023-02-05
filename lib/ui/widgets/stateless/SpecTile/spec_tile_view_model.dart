@@ -16,8 +16,8 @@ class SpecTileViewModel extends BaseViewModel {
     // print(doctor.Specializations!.first.name!);
   }
 
-  /*Future<void> moveToClinicViewRoute(BuildContext context) async {
+  Future<void> moveToSpecsViewRoute(BuildContext context) async {
     await locator<NavigationService>()
-        .pushNamed(ClinicViewRoute(clinic: clinic!), context);
-  }*/
+        .pushNamed(SpecViewRoute(specialization: specialization!), context);
+  }
 }

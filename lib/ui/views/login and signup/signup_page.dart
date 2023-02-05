@@ -28,11 +28,11 @@ class SignupPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 150),
+                    padding: const EdgeInsets.only(top: 10),
                     child: Expanded(
-                      flex: 2,
+                      flex: 3,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
@@ -58,6 +58,7 @@ class SignupPage extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: <Widget>[
                             Container(
                               height: 50,

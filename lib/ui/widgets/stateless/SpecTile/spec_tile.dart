@@ -7,6 +7,7 @@ import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
+import '../../../shared/ui_helper.dart';
 
 /// A list tile for an article.
 class SpecTile extends StatelessWidget {
@@ -21,122 +22,77 @@ class SpecTile extends StatelessWidget {
       viewModelBuilder: () => SpecTileViewModel(),
       onModelReady: (model) => model.init(specialization),
       builder: (context, model, child) => InkWell(
-          /* onTap: () async {
-          model.moveToClinicViewRoute(context);
-        },*/
-          child: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
-            mainAxisExtent: 120,
-            childAspectRatio: 1),
-        // ignore: sort_child_properties_last
-        children: [
-          InkWell(
-            onTap: (() {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => SpecView(specialization)),
-              );
-            }),
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16.0 / 2,
-                vertical: 16.0 / 2,
-              ),
-              decoration: BoxDecoration(
-                  color: HexColor.fromHex(Constants.app_color_on_primary),
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 5,
-                      color: Colors.grey,
-                    ),
-                  ]),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(16.0 / 2),
-                    height: 60,
-                    width: 75,
-                    decoration: BoxDecoration(
-                        color:
-                            HexColor.fromHex(Constants.app_color_on_secondary)
-                                .withOpacity(0.1),
-                        shape: BoxShape.circle),
-                    child: Icon(
-                      Icons.people,
-                      color: HexColor.fromHex(Constants.app_color_secondary),
-                    ),
+        onTap: () async {
+          model.moveToSpecsViewRoute(context);
+        },
+        child: SingleChildScrollView(
+          child: Expanded(
+            child: Card(
+              elevation: 3,
+              margin: EdgeInsets.all(10),
+              child: Container(
+                height: MediaQuery.of(context).size.height / 8,
+                child: Center(
+                  child: Row(
+                    children: [
+                      Expanded(
+                          flex: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 15),
+                            child: Row(
+                              children: [
+                                UIHelper.verticalSpaceLarge(),
+                                Container(
+                                  padding: EdgeInsets.all(16.0 / 2),
+                                  height: 60,
+                                  width: 75,
+                                  decoration: BoxDecoration(
+                                      color: HexColor.fromHex(
+                                              Constants.app_color_on_secondary)
+                                          .withOpacity(0.1),
+                                      shape: BoxShape.circle),
+                                  child: Icon(
+                                    Icons.people,
+                                    color: HexColor.fromHex(
+                                        Constants.app_color_secondary),
+                                  ),
+                                ),
+                                Text(
+                                  specialization.name!,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.cairo(
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 15,
+                                      color: HexColor.fromHex(
+                                          Constants.app_color_on_secondary),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          )),
+                      IconButton(
+                          alignment: Alignment.bottomLeft,
+                          color:
+                              HexColor.fromHex(Constants.app_color_secondary),
+                          icon: Icon(Icons.arrow_back_ios_new_outlined),
+                          iconSize: 25,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SpecView(specialization)),
+                            );
+                          }),
+                    ],
                   ),
-                  Text(
-                    specialization.name!,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.cairo(
-                        fontStyle: FontStyle.normal,
-                        fontSize: 15,
-                        color:
-                            HexColor.fromHex(Constants.app_color_on_secondary),
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+                ),
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16.0 / 2,
-              vertical: 16.0 / 2,
-            ),
-            decoration: BoxDecoration(
-              color: HexColor.fromHex(Constants.app_color_on_primary),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 5,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(16.0 / 2),
-                  height: 60,
-                  width: 75,
-                  decoration: BoxDecoration(
-                      color: HexColor.fromHex(Constants.app_color_on_secondary)
-                          .withOpacity(0.1),
-                      shape: BoxShape.circle),
-                  child: Icon(
-                    Icons.people,
-                    color: HexColor.fromHex(Constants.app_color_secondary),
-                  ),
-                ),
-                Text(
-                  specialization.name!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.cairo(
-                      fontStyle: FontStyle.normal,
-                      fontSize: 15,
-                      color: HexColor.fromHex(Constants.app_color_on_secondary),
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-        ],
-        shrinkWrap: true,
-        padding: EdgeInsets.all(10),
-      )),
+        ),
+      ),
     );
   }
 }
