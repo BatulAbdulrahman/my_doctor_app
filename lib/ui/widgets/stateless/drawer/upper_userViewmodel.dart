@@ -13,6 +13,7 @@ class UpperUserViewModel extends BaseViewModel {
   String? email = '';
   String? name = '';
   String? phone = '';
+  bool? isLoggedIn = true;
 
   Future<void> init(BuildContext context) async {
     this.context;
@@ -21,6 +22,7 @@ class UpperUserViewModel extends BaseViewModel {
     email = prefs.getString('email');
     name = prefs.getString('name');
     phone = prefs.getString('phone');
+    isLoggedIn = prefs.getBool('true');
     setBusy(false);
 
     print(email);

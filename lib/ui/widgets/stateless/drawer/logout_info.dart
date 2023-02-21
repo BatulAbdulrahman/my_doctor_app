@@ -12,16 +12,16 @@ import '../../../../core/constant/constants.dart';
 import '/ui/views/startup/start_up_view_model.dart';
 import '/ui/widgets/stateless/app_logo.dart';
 
-class UpperUserInfo extends StatefulWidget {
-  const UpperUserInfo({
+class LogoutInfo extends StatefulWidget {
+  const LogoutInfo({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<UpperUserInfo> createState() => _UpperUserInfoState();
+  State<LogoutInfo> createState() => _LogoutInfoState();
 }
 
-class _UpperUserInfoState extends State<UpperUserInfo> {
+class _LogoutInfoState extends State<LogoutInfo> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UpperUserViewModel>.reactive(
@@ -41,14 +41,17 @@ class _UpperUserInfoState extends State<UpperUserInfo> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                    alignment: Alignment.bottomLeft,
-                    color: HexColor.fromHex(Constants.app_color_on_primary),
-                    icon: Icon(Icons.keyboard_arrow_right_outlined),
+                    //   alignment: Alignment.bottomLeft,
+                    // color: HexColor.fromHex(Constants.app_color_on_primary),
+                    icon: Icon(
+                      Icons.logout_outlined,
+                      color: HexColor.fromHex(Constants.app_color_on_primary),
+                    ),
                     iconSize: 30,
                     onPressed: () {
                       Navigator.pop(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(builder: (context) => LoginPage()),
                       );
                     }),
                 Padding(
@@ -61,16 +64,17 @@ class _UpperUserInfoState extends State<UpperUserInfo> {
                           MaterialPageRoute(builder: (context) => LoginPage()),
                         );
                       },
-                      child: Text(
-                        'تـسـجيـل الدخـول',
-                        style: GoogleFonts.cairo(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 15,
-                            color:
-                                HexColor.fromHex(Constants.app_color_secondary),
-                            fontWeight: FontWeight.bold),
-                        maxLines: 1,
-                        overflow: TextOverflow.clip,
+                      child: Visibility(
+                        visible: model.isLoggedIn!,
+                        child: Text(
+                          ' تسجيـل الخـروج ',
+                          style: GoogleFonts.cairo(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 16,
+                              color: HexColor.fromHex(
+                                  Constants.app_color_on_primary),
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),

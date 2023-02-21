@@ -6,13 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/ui/views/contact_us/contact_us_view.dart';
 import 'package:movieapp/ui/views/home_page/home_page.dart';
 import 'package:movieapp/ui/views/home_page/home_page_view_model.dart';
-import 'package:movieapp/ui/widgets/stateless/drawer/upper_user_info.dart';
+import 'package:movieapp/ui/widgets/stateless/drawer/logout_info.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/constants.dart';
 import '../../../views/about_app/about_app_view.dart';
 import '../../../views/login and signup/login_page.dart';
+import '../../../views/login and signup/upper_user_info.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
+  bool _IsLoggedIn = false;
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomePageModel>.reactive(
@@ -134,27 +136,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         );
                       }),
                     ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.logout_outlined,
-                        color: HexColor.fromHex(Constants.app_color_on_primary),
-                      ),
-                      title: Text(
-                        ' تسجيـل الخـروج ',
-                        style: GoogleFonts.cairo(
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16,
-                            color: HexColor.fromHex(
-                                Constants.app_color_on_primary),
-                            fontWeight: FontWeight.bold),
-                      ),
-                      onTap: (() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      }),
-                    ),
+                    //LogoutInfo(),
                     SizedBox(height: 80),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 5),

@@ -263,183 +263,187 @@ class _ClinicViewState extends State<ClinicView>
                                                       .clinic.doctors!.first)),
                                         );
                                       },
-                                      child: Card(
-                                        elevation: 3,
-                                        margin: EdgeInsets.all(10),
-                                        child: Container(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height /
-                                              8,
-                                          child: Center(
-                                            child: Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Container(
-                                                    //color: Colors.r,
-                                                    child: Image.network(
-                                                      item.thumb ??
-                                                          'https://woodfibreinsulation.co.uk/wp-content/uploads/2017/04/blank-profile-picture-973460-1-1.png',
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                    flex: 3,
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 10,
-                                                              right: 15),
-                                                      child: Column(
-                                                        children: [
-                                                          UIHelper
-                                                              .verticalSpaceLarge(),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Expanded(
-                                                                child: Text(
-                                                                  item.name!,
-                                                                  maxLines: 1,
-                                                                  overflow:
-                                                                      TextOverflow
-                                                                          .ellipsis,
-                                                                  style: GoogleFonts.cairo(
-                                                                      fontStyle:
-                                                                          FontStyle
-                                                                              .normal,
-                                                                      fontSize:
-                                                                          15,
-                                                                      color: HexColor.fromHex(
-                                                                          Constants
-                                                                              .app_color_on_secondary),
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold),
-                                                                ),
-                                                              ),
-                                                              UIHelper
-                                                                  .horizontalSpaceSmall(),
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Expanded(
-                                                                child: Text(
-                                                                  item
-                                                                      .Specializations!
-                                                                      .first
-                                                                      .name!,
-                                                                  maxLines: 1,
-                                                                  overflow:
-                                                                      TextOverflow
-                                                                          .ellipsis,
-                                                                  style: GoogleFonts.cairo(
-                                                                      fontStyle:
-                                                                          FontStyle
-                                                                              .normal,
-                                                                      fontSize:
-                                                                          15,
-                                                                      color: HexColor.fromHex(
-                                                                          Constants
-                                                                              .app_color_on_secondary),
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold),
-                                                                ),
-                                                              ),
-                                                              UIHelper
-                                                                  .horizontalSpaceSmall(),
-                                                            ],
-                                                          ),
-                                                        ],
+                                      child: SingleChildScrollView(
+                                        child: Expanded(
+                                          child: Card(
+                                            elevation: 3,
+                                            margin: EdgeInsets.all(10),
+                                            child: Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  8,
+                                              child: Center(
+                                                child: Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Container(
+                                                        //color: Colors.r,
+                                                        child: Image.network(
+                                                          item.thumb ??
+                                                              'https://woodfibreinsulation.co.uk/wp-content/uploads/2017/04/blank-profile-picture-973460-1-1.png',
+                                                          fit: BoxFit.contain,
+                                                        ),
                                                       ),
-                                                    )),
-                                                UIHelper.horizontalSpaceSmall(),
-                                                Expanded(
-                                                    flex: 3,
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 3,
-                                                              left: 30,
-                                                              right: 5),
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                        children: [
-                                                          UIHelper
-                                                              .verticalSpaceLarge(),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
+                                                    ),
+                                                    Expanded(
+                                                        flex: 3,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 10,
+                                                                  right: 15),
+                                                          child: Column(
+                                                            children: [
+                                                              UIHelper
+                                                                  .verticalSpaceLarge(),
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      item.name!,
+                                                                      maxLines:
+                                                                          1,
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .ellipsis,
+                                                                      style: GoogleFonts.cairo(
+                                                                          fontStyle: FontStyle
+                                                                              .normal,
+                                                                          fontSize:
+                                                                              15,
+                                                                          color: HexColor.fromHex(Constants
+                                                                              .app_color_on_secondary),
+                                                                          fontWeight:
+                                                                              FontWeight.bold),
+                                                                    ),
+                                                                  ),
+                                                                  UIHelper
+                                                                      .horizontalSpaceSmall(),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child: Text(
+                                                                      item
+                                                                          .Specializations!
+                                                                          .first
+                                                                          .name!,
+                                                                      maxLines:
+                                                                          1,
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .ellipsis,
+                                                                      style: GoogleFonts.cairo(
+                                                                          fontStyle: FontStyle
+                                                                              .normal,
+                                                                          fontSize:
+                                                                              15,
+                                                                          color: HexColor.fromHex(Constants
+                                                                              .app_color_on_secondary),
+                                                                          fontWeight:
+                                                                              FontWeight.bold),
+                                                                    ),
+                                                                  ),
+                                                                  UIHelper
+                                                                      .horizontalSpaceSmall(),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        )),
+                                                    UIHelper
+                                                        .horizontalSpaceSmall(),
+                                                    Expanded(
+                                                        flex: 3,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  top: 3,
+                                                                  left: 30,
+                                                                  right: 5),
+                                                          child: Column(
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .center,
+                                                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                             children: [
-                                                              Expanded(
-                                                                child: Center(
-                                                                  child: Text(
-                                                                    "التقييم",
-                                                                    style: GoogleFonts
-                                                                        .cairo(
-                                                                      fontStyle:
-                                                                          FontStyle
-                                                                              .normal,
-                                                                      fontSize:
-                                                                          12,
-                                                                      color: HexColor.fromHex(
-                                                                          Constants
-                                                                              .app_color_on_secondary),
-                                                                      //fontWeight: FontWeight.bold
+                                                              UIHelper
+                                                                  .verticalSpaceLarge(),
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Text(
+                                                                        "التقييم",
+                                                                        style: GoogleFonts
+                                                                            .cairo(
+                                                                          fontStyle:
+                                                                              FontStyle.normal,
+                                                                          fontSize:
+                                                                              12,
+                                                                          color:
+                                                                              HexColor.fromHex(Constants.app_color_on_secondary),
+                                                                          //fontWeight: FontWeight.bold
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                ),
+                                                                  UIHelper
+                                                                      .horizontalSpaceSmall(),
+                                                                ],
                                                               ),
                                                               UIHelper
-                                                                  .horizontalSpaceSmall(),
+                                                                  .horizontalSpaceMedium(),
+                                                              Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Expanded(
+                                                                      child:
+                                                                          Center(
+                                                                    child:
+                                                                        IconTheme(
+                                                                      data:
+                                                                          IconThemeData(
+                                                                        color: HexColor.fromHex(
+                                                                            Constants.app_color_secondary),
+                                                                        size:
+                                                                            20,
+                                                                      ),
+                                                                      child: StarDisplay(
+                                                                          value:
+                                                                              item.rating!),
+                                                                    ),
+                                                                  )),
+                                                                ],
+                                                              ),
                                                             ],
                                                           ),
-                                                          UIHelper
-                                                              .horizontalSpaceMedium(),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Expanded(
-                                                                  child: Center(
-                                                                child:
-                                                                    IconTheme(
-                                                                  data:
-                                                                      IconThemeData(
-                                                                    color: HexColor.fromHex(
-                                                                        Constants
-                                                                            .app_color_secondary),
-                                                                    size: 20,
-                                                                  ),
-                                                                  child: StarDisplay(
-                                                                      value: item
-                                                                          .rating!),
-                                                                ),
-                                                              )),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    )),
-                                                // UIHelper.verticalSpaceSmall(),
-                                              ],
+                                                        )),
+                                                    // UIHelper.verticalSpaceSmall(),
+                                                  ],
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),

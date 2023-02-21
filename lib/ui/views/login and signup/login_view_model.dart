@@ -93,4 +93,6 @@ class LoginViewModel extends BaseViewModel {
     var preferences = await SharedPreferences.getInstance();
     await preferences.clear();
   }
+
+  init(BuildContext context) {}
 }
